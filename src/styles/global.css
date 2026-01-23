@@ -54,6 +54,8 @@ html {
     /* Native smooth scroll */
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    scroll-padding-top: 100px;
+    /* Account for fixed header globally */
 }
 
 body {
@@ -212,6 +214,7 @@ img {
     }
 
     .section {
-        padding: var(--spacing-xxl) 0;
+        padding: 5rem 0;
+        /* More padding on top/bottom for mobile header clearance */
     }
 }
