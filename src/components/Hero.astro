@@ -164,12 +164,12 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start; /* Changed from center to bring content up */
       text-align: center;
       padding: 2rem 1rem;
     }
     .hero-content { 
-      padding-top: 2rem; /* Reduced back now that badge is hidden */
+      padding-top: 10rem; /* Stable offset for floating header */
       display: flex;
       flex-direction: column;
       align-items: center;
