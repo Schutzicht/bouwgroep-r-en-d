@@ -169,10 +169,29 @@ const projects = [
   }
 
   @media (max-width: 900px) {
+    .project-list {
+      flex-direction: row;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 2rem;
+      margin: 0 -1rem; /* Negative margin to peek past container */
+      padding: 0 1rem 2rem;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    .project-list::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+
     .project-row, .project-row:nth-child(even) {
       grid-template-columns: 1fr;
       gap: 1.5rem;
+      min-width: 85%; /* Carousel slide width */
+      scroll-snap-align: center;
     }
+
     .project-row:nth-child(even) .project-img {
       grid-column: 1;
       grid-row: 1;
@@ -183,10 +202,14 @@ const projects = [
       text-align: left;
     }
     .project-img {
-      height: 300px;
+      height: 250px;
     }
     .project-content h3 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .project-row:nth-child(even) .project-content .btn-link {
+      margin-left: 0;
     }
   }
 </style>
