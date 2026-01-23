@@ -321,7 +321,10 @@ const currentYear = new Date().getFullYear();
     }
     .contact-list li {
       justify-content: center;
-      text-align: center;
+      text-align: left; /* Keep text left-aligned relative to icon but center the whole block */
+      width: max-content;
+      margin-left: auto;
+      margin-right: auto;
     }
     .newsletter-form {
       max-width: 400px;
@@ -332,13 +335,15 @@ const currentYear = new Date().getFullYear();
       flex-direction: column;
       text-align: center;
       gap: 1rem;
-      padding-bottom: 5rem; /* Space for sticky button maybe? */
+      padding-bottom: 7rem; /* Space for sticky button */
     }
     #back-to-top {
-      bottom: 1.5rem;
-      right: 1.5rem;
+      bottom: 7.5rem; /* Above sticky button */
+      right: 1rem;
       width: 45px;
       height: 45px;
+      background: rgba(26, 26, 26, 0.9);
+      border: 1px solid var(--color-primary);
     }
   }
 </style>
