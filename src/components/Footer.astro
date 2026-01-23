@@ -96,7 +96,7 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-bottom">
       <p>&copy; {currentYear} R&D Bouwgroep. Alle rechten voorbehouden.</p>
-      <p class="credits">Website door <a href="#">ZeeuwsOnline</a></p>
+      <p class="credits">Website door <a href="https://zee-zicht.nl" target="_blank">zee-zicht.nl</a></p>
     </div>
   </div>
 
@@ -363,6 +363,10 @@ const currentYear = new Date().getFullYear();
       max-width: 400px;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 0;
+    }
+    .map-container {
+      display: none; /* Hide map on mobile as requested */
     }
     .footer-bottom {
       flex-direction: column;
