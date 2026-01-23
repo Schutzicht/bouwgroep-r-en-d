@@ -336,7 +336,9 @@ const currentYear = new Date().getFullYear();
     .links-col ul {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start; /* Aligned to left edge of the block */
+      width: max-content;
+      margin: 0 auto;
       padding: 0;
       list-style-type: none; /* Absolute reset */
     }
