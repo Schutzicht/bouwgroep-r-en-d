@@ -1,0 +1,409 @@
+<section id="contact" class="section cta-section">
+  <div class="container content">
+    <div class="cta-layout">
+      <!-- Left side: Text -->
+      <div class="cta-text">
+        <h2>Klaar voor uw <span class="text-white">Droomproject?</span></h2>
+        <p>Neem vrijblijvend contact op voor een adviesgesprek op maat. Wij denken graag met u mee van ontwerp tot realisatie.</p>
+        
+        <div class="direct-contact">
+          <a href="tel:+31630301276" class="phone-link">
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="details">
+              <span>Bel Direct</span>
+              <strong>+31 6 30 301 276</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side: Form -->
+      <div class="cta-form-wrapper">
+        <form class="quote-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Naam</label>
+              <input type="text" placeholder="Uw naam" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email of Telefoon</label>
+              <input type="text" placeholder="Hoe kunnen we u bereiken?" required />
+            </div>
+          </div>
+
+          <!-- Innovative Dropdown -->
+          <div class="form-group dropdown-group">
+            <label>Type Project</label>
+            <div class="custom-dropdown" id="project-dropdown">
+              <div class="dropdown-selected">
+                <span>Selecteer project type...</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+              <div class="dropdown-options">
+                <div class="option" data-value="badkamer">
+                  <div class="opt-icon">🛁</div>
+                  <div class="opt-text">
+                    <strong>Complete Badkamer</strong>
+                    <small>Van ontwerp tot installatie</small>
+                  </div>
+                </div>
+                <div class="option" data-value="tegelwerk">
+                  <div class="opt-icon">🧱</div>
+                  <div class="opt-text">
+                    <strong>Luxe Tegelwerk</strong>
+                    <small>Grootformaat & specialisme</small>
+                  </div>
+                </div>
+                <div class="option" data-value="wellness">
+                  <div class="opt-icon">🧘</div>
+                  <div class="opt-text">
+                    <strong>Wellness & Spa</strong>
+                    <small>Sauna, stoomcabine & rust</small>
+                  </div>
+                </div>
+                <div class="option" data-value="ander">
+                  <div class="opt-icon">✨</div>
+                  <div class="opt-text">
+                    <strong>Overig Maatwerk</strong>
+                    <small>Vertel ons uw wensen</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="project_type" id="project-type-input" required />
+          </div>
+
+          <div class="form-group">
+            <label>Bericht</label>
+            <textarea placeholder="Vertel kort over uw plannen..." rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-white btn-full">
+            Verstuur Offerte Aanvraag
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    background-color: var(--color-primary);
+    background-image: linear-gradient(rgba(160, 10, 19, 0.92), rgba(160, 10, 19, 0.85)), url('https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 8rem 0;
+  }
+
+  .cta-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  h2 {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+  }
+  
+  .text-white { 
+    color: white; 
+    border-bottom: 4px solid rgba(255,255,255,0.3); 
+  }
+
+  p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .direct-contact {
+    margin-top: 3rem;
+  }
+
+  .phone-link {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .phone-link:hover {
+    transform: translateX(10px);
+  }
+
+  .phone-link .icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .phone-link .details span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .phone-link .details strong {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  /* Form Styling */
+  .cta-form-wrapper {
+    background: rgba(255, 255, 255, 0.12); /* Slightly more opaque */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 3.5rem; /* Slightly more breathing room */
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.25); /* Stronger border */
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+  }
+
+  .quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: white; /* Force white */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+  .form-group input, 
+  .form-group textarea {
+    background: rgba(255, 255, 255, 0.08); /* Lighter background for inputs */
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 1.2rem;
+    border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input::placeholder, 
+  .form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .form-group input:focus, 
+  .form-group textarea:focus {
+    border-color: white;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.05);
+  }
+
+  /* Innovative Dropdown Styling */
+  .custom-dropdown {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+  }
+
+  .dropdown-selected {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 1.2rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+  }
+
+  .dropdown-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    z-index: 100;
+  }
+
+  .custom-dropdown.active .dropdown-options {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .option {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: background 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .option:last-child { border-bottom: none; }
+
+  .option:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .opt-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+  }
+
+  .opt-text strong {
+    display: block;
+    font-size: 0.95rem;
+    color: white;
+  }
+
+  .opt-text small {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .btn-white {
+    background-color: white;
+    color: var(--color-primary);
+    border: none;
+    padding: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-white:hover {
+    background-color: var(--color-dark);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .btn-full { width: 100%; }
+
+  @media (max-width: 1024px) {
+    .cta-layout {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3.5rem;
+    }
+    
+    .cta-text p { 
+      margin: 0 auto 3rem; 
+      max-width: 500px;
+    }
+
+    h2 {
+      font-size: 2.75rem;
+    }
+    
+    .phone-link { 
+      justify-content: center; 
+    }
+    
+    .cta-form-wrapper { 
+      padding: 2.5rem 1.5rem; 
+      border-radius: 12px;
+    }
+
+    .form-group label {
+      text-align: left;
+    }
+
+    .option {
+      padding: 1.25rem 1rem; /* Slightly larger for touch */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-section {
+      padding: 4rem 0;
+    }
+    h2 {
+      font-size: 2.25rem;
+    }
+    .phone-link .details strong {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  // Innovative Dropdown Logic
+  const dropdown = document.getElementById('project-dropdown');
+  const selected = dropdown?.querySelector('.dropdown-selected');
+  const options = dropdown?.querySelectorAll('.option');
+  const input = document.getElementById('project-type-input') as HTMLInputElement;
+
+  selected?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown?.classList.toggle('active');
+  });
+
+  options?.forEach(option => {
+    option.addEventListener('click', (e) => {
+      const val = option.getAttribute('data-value');
+      const text = option.querySelector('strong')?.innerText;
+      
+      if (input) input.value = val || '';
+      if (selected) {
+        selected.querySelector('span')!.innerText = text || '';
+        selected.querySelector('span')!.style.color = 'white';
+      }
+      
+      dropdown?.classList.remove('active');
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    dropdown?.classList.remove('active');
+  });
+</script>

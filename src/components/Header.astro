@@ -1,0 +1,343 @@
+---
+---
+
+<header id="main-header">
+  <div class="header-island">
+    <a href="/" class="logo-wrapper">
+      <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/RenD-hoofdlogo.png" alt="R&D Bouwgroep" class="logo-img" />
+    </a>
+
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#about" class="nav-link">Over Ons</a></li>
+        <li><a href="#services" class="nav-link">Diensten</a></li>
+        <li><a href="#projects" class="nav-link">Projecten</a></li>
+        <li><a href="#contact" class="nav-link btn-nav">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <button id="mobile-menu-toggle" aria-label="Toggle Menu">
+       <span class="hamburger-box">
+         <span class="hamburger-inner"></span>
+       </span>
+    </button>
+  </div>
+</header>
+
+<div id="mobile-menu-overlay">
+  <nav>
+    <ul>
+      <li><a href="#about" class="mobile-link">Over Ons</a></li>
+      <li><a href="#services" class="mobile-link">Diensten</a></li>
+      <li><a href="#projects" class="mobile-link">Projecten</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<style>
+  /* Default Scoped Styles */
+  header {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    transition: top 0.3s ease;
+  }
+  
+  .header-island {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
+
+<!-- Force Global Styles for Scroll State to avoid Scoping Issues -->
+<style is:global>
+  header.scrolled {
+    top: 15px !important;
+  }
+
+  header.scrolled .header-island {
+    padding: 0.5rem 1.5rem !important;
+    width: auto !important;
+    max-width: 600px !important; /* Even narrower */
+    gap: 2rem !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+  }
+  
+  header.scrolled .logo-wrapper {
+    width: 80px !important; /* Smaller */
+  }
+  
+  header.scrolled .nav-link {
+    font-size: 0.75rem !important;
+  }
+</style>
+
+<style>
+/* Resume Scoped Styles */
+  .logo-wrapper {
+    width: 140px;
+    display: block;
+    line-height: 0;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .logo-img {
+    width: 100%;
+    height: auto;
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-link {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-dark); /* Always dark text on white pill */
+    position: relative;
+    padding: 0.5rem 0;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-link:not(.btn-nav)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:not(.btn-nav):hover::after {
+    width: 100%;
+  }
+
+  .btn-nav {
+    background-color: var(--color-primary);
+    color: white !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(227, 6, 19, 0.3);
+  }
+  
+  .btn-nav:hover {
+    background-color: #b00000;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(227, 6, 19, 0.4);
+  }
+
+  /* Hamburger */
+  #mobile-menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hamburger-box {
+    width: 24px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -1px;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-dark);
+    position: absolute;
+    transition: transform 0.15s ease;
+  }
+  
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-dark);
+    transition: transform 0.15s ease;
+  }
+  
+  .hamburger-inner::before {
+    top: -8px;
+  }
+  .hamburger-inner::after {
+    bottom: -8px;
+  }
+
+  /* Mobile Overlay */
+  #mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(18, 18, 18, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    padding-top: 8rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  #mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #mobile-menu-overlay ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .mobile-link {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .mobile-link:hover {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 1024px) {
+    #main-nav { display: none; }
+    #mobile-menu-toggle { display: flex; }
+    .header-island { 
+      padding: 0.6rem 1.25rem; 
+      width: calc(100% - 2rem); 
+      margin: 0 1rem;
+    }
+    .logo-wrapper {
+      width: 110px;
+    }
+  }
+
+  /* Hamburger Active Animation */
+  #mobile-menu-toggle.active .hamburger-inner {
+    transform: rotate(45deg);
+  }
+  #mobile-menu-toggle.active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+  }
+  #mobile-menu-toggle.active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+  }
+
+  #mobile-menu-overlay ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .mobile-link {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  #mobile-menu-overlay.active .mobile-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #mobile-menu-overlay.active .mobile-link:nth-child(1) { transition-delay: 0.1s; }
+  #mobile-menu-overlay.active .mobile-link:nth-child(2) { transition-delay: 0.2s; }
+  #mobile-menu-overlay.active .mobile-link:nth-child(3) { transition-delay: 0.3s; }
+  #mobile-menu-overlay.active .mobile-link:nth-child(4) { transition-delay: 0.4s; }
+
+</style>
+
+<script>
+  // Simple, robust header scroll script
+  const header = document.getElementById('main-header');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const body = document.body;
+  const links = document.querySelectorAll('.mobile-link');
+
+  function updateHeader() {
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  // Run on scroll
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  
+  // Run immediately in case of refresh/back-nav
+  updateHeader();
+
+  // Mobile Menu Logic
+  if (toggle && overlay) {
+    toggle.addEventListener('click', () => {
+      const isActive = overlay.classList.toggle('active');
+      toggle.classList.toggle('active');
+      body.style.overflow = isActive ? 'hidden' : '';
+    });
+
+    links.forEach(l => l.addEventListener('click', () => {
+      overlay.classList.remove('active');
+      toggle.classList.remove('active');
+      body.style.overflow = '';
+    }));
+  }
+</script>

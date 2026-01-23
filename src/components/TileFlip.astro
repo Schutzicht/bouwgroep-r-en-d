@@ -1,0 +1,220 @@
+---
+---
+
+<section class="tile-feature-section">
+  <div class="container relative-z">
+    <div class="row align-center mb-5">
+      <div class="col-12 text-center">
+        <span class="eyebrow">Waarom R&D Bouwgroep</span>
+        <h2 class="section-title" style="color: white;">De Standaard in <span class="text-primary">Luxe</span></h2>
+        <div class="title-underline"></div>
+      </div>
+    </div>
+    
+    <div class="grid-layout">
+      <!-- Item 1 -->
+      <div class="feature-card">
+        <div class="icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3 8 9l4 13 4-13-3-6"/></svg>
+        </div>
+        <h3>Topkwaliteit</h3>
+        <p>Wij werken uitsluitend met premium materialen en A-merken voor een duurzaam, hoogwaardig eindresultaat.</p>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="feature-card">
+        <div class="icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3>Maatwerk</h3>
+        <p>Van ontwerp tot realisatie: wij leveren vakwerk tot op de millimeter nauwkeurig, volledig afgestemd op uw wensen.</p>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="feature-card">
+        <div class="icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Perfectie</h3>
+        <p>Strak tegelwerk en naadloze afwerking. Wij nemen geen genoegen met minder dan het allerbeste resultaat.</p>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="feature-card">
+        <div class="tile-shine"></div>
+        <div class="icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Garantie</h3>
+        <p>Transparantie en zekerheid. U kunt rekenen op onze uitstekende service en uitgebreide nazorg.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tile-feature-section {
+    padding: 6rem 0;
+    background-color: #080808; /* Deep matte black */
+    color: white;
+    position: relative;
+  }
+
+  /* Grid Layout */
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 3rem auto 0;
+    padding: 0 2rem;
+  }
+
+  /* Card Style - PHYSICAL TILE LOOK */
+  .feature-card {
+    background-color: #1a1a1a;
+    /* Realistic Stone/Ceramic Texture */
+    background-image: 
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    
+    /* Physical Bevel/Chamfer for 3D Tile Effect */
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-left: 1px solid rgba(255,255,255,0.05);
+    border-right: 1px solid rgba(0,0,0,0.5);
+    border-bottom: 4px solid #000;
+    
+    padding: 2rem;
+    border-radius: 4px; /* Slight radius like real rect tiles */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    /* Enforce Square Tile Shape */
+    aspect-ratio: 1 / 1; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  /* Glossy Sheen Overlay */
+  .tile-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 40%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Elegant Hover */
+  .feature-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    background-color: #222;
+    border-bottom-color: var(--color-primary); /* Color highlight on edge */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+  
+  /* Icon Wrapper */
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.4); /* Deep inlay look */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    /* Inset shadow for depth */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+    color: #ccc;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover .icon-wrapper {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Typography */
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700; /* Bolder for stone feel */
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    color: white;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section Header */
+  .eyebrow {
+    color: #666;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white !important; /* Force White as requested */
+  }
+
+  .title-underline {
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    margin: 1.5rem auto 0;
+  }
+
+  .text-center { text-align: center; }
+
+  @media (max-width: 1024px) {
+    .grid-layout {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tile-feature-section {
+      padding: 4rem 0;
+    }
+    .grid-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .section-title {
+      font-size: 2.25rem;
+    }
+    .feature-card {
+      padding: 2.5rem 2rem;
+    }
+  }
+</style>

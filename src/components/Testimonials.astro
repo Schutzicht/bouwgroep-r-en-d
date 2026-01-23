@@ -1,0 +1,216 @@
+---
+const reviews = [
+  {
+    name: "Lizanne Hennessey",
+    role: "Particulier",
+    text: "Pico bello! De vakmensen van R&D hebben onze vloer perfect gelegd. We krijgen er alleen maar positieve reacties op. Een aanrader voor iedereen die kwaliteit zoekt."
+  },
+  {
+    name: "Marian en John",
+    role: "Badkamer Renovatie",
+    text: "Een fantastische ervaring. Het resultaat is precies zoals we voor ogen hadden. De professionaliteit en passie spat er vanaf. Bedankt voor de geweldige service!"
+  },
+  {
+    name: "Linda",
+    role: "Wellness Project",
+    text: "We hebben onze wellnessruimte laten betegelen door R&D. Ze werken vriendelijk, professioneel en snel. Het voelt nu echt als een luxe spa aan huis."
+  },
+  {
+    name: "Mark en Susan",
+    role: "Badkamer",
+    text: "Onze badkamer is compleet vernieuwd. Ze hebben super netjes gewerkt en alles keurig achtergelaten. R&D is echt een topbedrijf met oog voor detail."
+  },
+  {
+    name: "Johan",
+    role: "Tegelwerken",
+    text: "Zeer tevreden. Afspraken worden nagekomen en het vakmanschap is van hoog niveau. Voor mijn volgende project bel ik zeker weer R&D Bouwgroep."
+  },
+  {
+    name: "Familie de Vries",
+    role: "Nieuwbouw",
+    text: "Wat een vakwerk! De grote tegels in de woonkamer liggen er strak in. Geen naden te zien. Echt vakmanschap waar je blij van wordt."
+  }
+];
+---
+
+<section class="testimonials-section">
+  <div class="container text-center mb-12">
+    <span class="eyebrow">Wat anderen zeggen</span>
+    <h2 class="section-title">Ervaringen van <span class="text-primary">Klanten</span></h2>
+    <div class="title-underline"></div>
+  </div>
+
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <!-- Double the items for seamless loop -->
+      {reviews.map((review) => (
+        <div class="review-card">
+          <div class="quote-icon">❝</div>
+          <p class="review-text">"{review.text}"</p>
+          <div class="review-meta">
+            <div class="avatar-placeholder">{review.name.charAt(0)}</div>
+            <div class="meta-info">
+              <span class="name">{review.name}</span>
+              <span class="role">{review.role}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+      {reviews.map((review) => (
+        <div class="review-card">
+          <div class="quote-icon">❝</div>
+          <p class="review-text">"{review.text}"</p>
+          <div class="review-meta">
+            <div class="avatar-placeholder">{review.name.charAt(0)}</div>
+            <div class="meta-info">
+              <span class="name">{review.name}</span>
+              <span class="role">{review.role}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: 8rem 0;
+    /* Clean white background for contrast against dark footer/hero */
+    background-color: white; 
+    overflow: hidden;
+    position: relative;
+  }
+
+  .eyebrow {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    color: var(--color-dark);
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 800;
+  }
+
+  .title-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    margin: 1.5rem auto;
+    border-radius: 2px;
+  }
+
+  /* Marquee Container */
+  .marquee-container {
+    width: 100%;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    overflow: hidden;
+    /* Simplified mask for better compatibility */
+    mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    /* Ensure no wrapping ever */
+    flex-wrap: nowrap;
+    animation: scroll 60s linear infinite;
+  }
+  
+  /* Ensure the animation runs smoothly */
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    /* Translate -50% assumes we have 2 sets of identical items */
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Review Card */
+  .review-card {
+    background: #f8f8f8;
+    padding: 2.5rem;
+    border-radius: 2px; /* Slight round, mostly sharp */
+    width: 400px;
+    flex-shrink: 0;
+    position: relative;
+    border-left: 4px solid var(--color-primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background: white;
+  }
+
+  .quote-icon {
+    font-size: 4rem;
+    color: rgba(227, 6, 19, 0.1); /* Very subtle brand color */
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    line-height: 1;
+    font-family: serif;
+  }
+
+  .review-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .review-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    background: var(--color-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .meta-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    font-weight: 700;
+    color: var(--color-dark);
+    font-size: 1rem;
+  }
+
+  .role {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+</style>
