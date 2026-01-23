@@ -184,18 +184,31 @@ const currentYear = new Date().getFullYear();
     transform: translateY(-3px);
   }
 
+  .links-col ul {
+    list-style: none; /* No bullets */
+    padding: 0;
+    margin: 0;
+  }
+
   .links-col ul li {
     margin-bottom: 0.8rem;
+    list-style: none; /* Secondary reset */
   }
 
   .links-col a, .contact-col a {
     color: #bbb;
+    text-decoration: none;
     transition: color 0.3s;
   }
 
   .links-col a:hover, .contact-col a:hover {
     color: var(--color-primary);
-    padding-left: 5px;
+  }
+
+  .contact-list {
+    list-style: none; /* No bullets */
+    padding: 0;
+    margin: 0;
   }
 
   .contact-list li {
@@ -203,6 +216,7 @@ const currentYear = new Date().getFullYear();
     gap: 1rem;
     margin-bottom: 1.2rem;
     color: #bbb;
+    list-style: none; /* Secondary reset */
   }
 
   .newsletter-form {
@@ -319,12 +333,31 @@ const currentYear = new Date().getFullYear();
     .social-links {
       justify-content: center;
     }
+    .links-col ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      list-style-type: none; /* Absolute reset */
+    }
+    .links-col ul li {
+      margin-bottom: 1rem;
+      list-style-type: none; /* Absolute reset */
+    }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      list-style-type: none; /* Absolute reset */
+    }
     .contact-list li {
       justify-content: center;
       text-align: left; /* Keep text left-aligned relative to icon but center the whole block */
       width: max-content;
       margin-left: auto;
       margin-right: auto;
+      list-style-type: none; /* Absolute reset */
     }
     .newsletter-form {
       max-width: 400px;
