@@ -237,17 +237,16 @@
     
     // Create a "Zone" around the center where it is visible.
     // As it moves away from center (up or down), progress drops.
-    // Zone Height: 400px up or down
-    const zone = 500; 
+    // Zone Height: 800px up or down
+    const zone = 800; 
     
     // Normalized 0 to 1 based on distance from center
-    // 1 = Center, 0 = >500px away
+    // 1 = Center, 0 = >zone away
     let progress = 1 - (Math.abs(distFromCenter) / zone);
     progress = Math.max(0, Math.min(1, progress)); 
 
-    // Add an "Exit Curve" - make it leave faster than it enters linear
-    // Squaring it makes the dropoff steeper (leaves simpler)
-    progress = Math.pow(progress, 1.5);
+    // Remove the exponential dropoff (was 1.5) to keep it smoother/longer
+    // progress = Math.pow(progress, 1); // Linear is smoother for long visibility
 
     // Map progress to Target Properties
     // Check if mobile for different animation logic
