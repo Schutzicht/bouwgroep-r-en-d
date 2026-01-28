@@ -361,48 +361,48 @@ const currentYear = new Date().getFullYear();
     }
     .footer-grid {
       grid-template-columns: 1fr;
-      text-align: center;
+      text-align: left;
       gap: 3.5rem;
     }
     .footer-col h3::after {
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      transform: none;
     }
     .social-links {
-      justify-content: center;
+      justify-content: flex-start;
     }
     .links-col ul {
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Aligned to left edge of the block */
-      width: max-content;
-      margin: 0 auto;
+      align-items: flex-start;
+      width: 100%;
+      margin: 0;
       padding: 0;
-      list-style-type: none; /* Absolute reset */
+      list-style-type: none;
     }
     .links-col ul li {
       margin-bottom: 1rem;
-      list-style-type: none; /* Absolute reset */
+      list-style-type: none;
     }
     .contact-list {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       padding: 0;
-      list-style-type: none; /* Absolute reset */
+      list-style-type: none;
     }
     .contact-list li {
-      justify-content: center;
-      text-align: left; /* Keep text left-aligned relative to icon but center the whole block */
-      width: max-content;
-      margin-left: auto;
-      margin-right: auto;
-      list-style-type: none; /* Absolute reset */
+      justify-content: flex-start;
+      text-align: left;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      list-style-type: none;
     }
     .newsletter-form {
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
       margin-bottom: 0;
     }
     .map-container {
