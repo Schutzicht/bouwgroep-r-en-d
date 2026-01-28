@@ -19,9 +19,8 @@ const currentYear = new Date().getFullYear();
           Vakmanschap en passie in elk detail.
         </p>
         <div class="social-links">
-          <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-          <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="https://www.facebook.com/p/Bouwgroep-RD-61554868521265/" target="_blank" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="https://www.instagram.com/bouwgroeprend/" target="_blank" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
         </div>
       </div>
 
@@ -29,12 +28,11 @@ const currentYear = new Date().getFullYear();
       <div class="footer-col links-col">
         <h3>Navigatie</h3>
         <ul>
-          <li><a href="#about">Over Ons</a></li>
-          <li><a href="#services">Diensten</a></li>
-          <li><a href="#projects">Projecten</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#">Privacyverklaring</a></li>
-          <li><a href="#">Algemene Voorwaarden</a></li>
+          <li><a href="/#about">Over Ons</a></li>
+          <li><a href="/#services">Diensten</a></li>
+          <li><a href="/#projects">Projecten</a></li>
+          <li><a href="/vacatures">Vacatures</a></li>
+          <li><a href="/#contact">Contact</a></li>
         </ul>
       </div>
 
@@ -95,8 +93,17 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {currentYear} R&D Bouwgroep. Alle rechten voorbehouden.</p>
-      <p class="credits">Website door <a href="https://zee-zicht.nl" target="_blank">zee-zicht.nl</a></p>
+      <div class="footer-legal">
+        <a href="/privacyverklaring">Privacyverklaring</a>
+        <span class="separator">|</span>
+        <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
+        <span class="separator">|</span>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; {currentYear} R&D Bouwgroep. Alle rechten voorbehouden.</p>
+        <p class="credits">Website door <a href="https://zee-zicht.nl" target="_blank">zee-zicht.nl</a></p>
+      </div>
     </div>
   </div>
 
@@ -267,9 +274,40 @@ const currentYear = new Date().getFullYear();
     border-top: 1px solid rgba(255,255,255,0.05);
     padding-top: 2rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     color: #666;
     font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-legal a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-legal a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-legal .separator {
+    color: #444;
+  }
+
+  .footer-info {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .credits a {
@@ -371,10 +409,15 @@ const currentYear = new Date().getFullYear();
       display: none; /* Hide map on mobile as requested */
     }
     .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 1rem;
       padding-bottom: 7rem; /* Space for sticky button */
+    }
+    .footer-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .footer-legal {
+        flex-wrap: wrap;
+        justify-content: center;
     }
     #back-to-top {
       bottom: 7.5rem; /* Above sticky button */

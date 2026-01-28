@@ -1,0 +1,440 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const vacancies = [
+  {
+    title: "Ervaren Tegelzetter",
+    location: "Vlissingen e.o.",
+    type: "Fulltime",
+    href: "/vacatures/ervaren-tegelzetter",
+    tags: ["Vakmanschap", "Exclusief", "Per Direct"],
+    description: "Ben jij een meester in je vak? Werk mee aan de meest exclusieve sanitaire projecten van Zeeland."
+  }
+];
+
+const benefits = [
+    { 
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>`, 
+        title: "Eigen Bus", 
+        desc: "Compleet ingericht met het beste gereedschap." 
+    },
+    { 
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`, 
+        title: "Goed Salaris", 
+        desc: "Passend bij jouw ervaring en vakmanschap." 
+    },
+    { 
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`, 
+        title: "Top Materiaal", 
+        desc: "Werken met exclusieve tegels en sanitair." 
+    },
+    { 
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`, 
+        title: "Hecht Team", 
+        desc: "Gezellige collega's en leuke borrels." 
+    }
+];
+---
+
+<Layout title="Carrière | R&D Bouwgroep">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <span class="label-pill">Werken bij R&D</span>
+            <h1>Bouw mee aan <br> <span class="gradient-text">Exclusiviteit</span></h1>
+            <p class="hero-lead">Jouw vakmanschap verdient de mooiste projecten. <br>Sluit je aan bij het team dat de standaard zet.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            
+            <!-- Bento Grid Layout -->
+            <div class="bento-grid">
+                
+                <!-- Vacancies Column (Takes 2/3 space generally) -->
+                <div class="bento-col main-col">
+                    <h2 class="section-title">Openstaande Functies</h2>
+                    <div class="vacancies-list">
+                        {vacancies.map(job => (
+                            <a href={job.href} class="vacancy-card glass-card">
+                                <div class="card-arrow">→</div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <h3>{job.title}</h3>
+                                        <div class="tags">
+                                            {job.tags.map(tag => <span class="tag">{tag}</span>)}
+                                        </div>
+                                    </div>
+                                    <p>{job.description}</p>
+                                    <div class="meta-row">
+                                        <span class="meta-item">
+                                            <span class="icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                            </span> 
+                                            {job.location}
+                                        </span>
+                                        <span class="meta-item">
+                                            <span class="icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                            </span> 
+                                            {job.type}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Benefits Column (Takes 1/3 space) -->
+                <div class="bento-col side-col">
+                    <div class="benefits-card glass-card">
+                        <h3>Waarom R&D?</h3>
+                        <div class="benefits-list">
+                            {benefits.map(b => (
+                                <div class="benefit-item">
+                                    <div class="benefit-icon" set:html={b.icon} />
+                                    <div class="benefit-text">
+                                        <strong>{b.title}</strong>
+                                        <span>{b.desc}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div class="open-app-card glass-card dark">
+                        <h3>Open Sollicitatie</h3>
+                        <p>Staat jouw droombaan er niet tussen, maar ben je wel een vakman?</p>
+                        <a href="mailto:info@rd-bouwgroep.nl" class="btn-link">Stuur een mail →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    :root {
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --glass-blur: 10px;
+        --neon-glow: 0 0 20px rgba(227, 6, 19, 0.15);
+    }
+
+    /* Overall Page */
+    :global(body) {
+        background-color: #0a0a0a;
+    }
+
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        position: relative;
+        height: 70vh;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        text-align: center;
+        padding-top: 80px; /* Account for fixed header visual centering */
+    }
+
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 30%, #1a1a1a 0%, #000000 70%);
+        z-index: 1;
+    }
+
+    .hero-bg::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: url('hero-pattern.svg') /* Placeholder texture if needed */ repeat; 
+        opacity: 0.03;
+        animation: spin 120s linear infinite;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .label-pill {
+        display: inline-block;
+        padding: 0.5rem 1.2rem;
+        background: rgba(227, 6, 19, 0.1);
+        border: 1px solid rgba(227, 6, 19, 0.3);
+        color: var(--color-primary);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 6vw, 5rem);
+        line-height: 1.1;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: white;
+        letter-spacing: -1px;
+        animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #fff 30%, #999 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        color: #888;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+        animation: fadeInUp 1s ease-out 0.4s backwards;
+    }
+
+    /* Content Section */
+    .content-section {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 8rem;
+        margin-top: 0;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 2rem;
+        padding-left: 0.5rem;
+        border-left: 3px solid var(--color-primary);
+    }
+
+    /* Glass Cards */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2rem;
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Vacancy Card */
+    .vacancy-card {
+        display: block;
+        text-decoration: none;
+        margin-bottom: 1.5rem;
+        padding: 2.5rem;
+    }
+
+    .vacancy-card:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: var(--neon-glow);
+    }
+
+    .card-arrow {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        transform: translateX(-10px);
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .vacancy-card:hover .card-arrow {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .card-header h3 {
+        font-size: 2rem;
+        color: white;
+        margin: 0 0 1rem;
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #ddd;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .vacancy-card p {
+        color: #aaa;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        max-width: 90%;
+    }
+
+    .meta-row {
+        display: flex;
+        gap: 2rem;
+        color: #888;
+        font-size: 0.95rem;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .meta-item .icon {
+        display: flex;
+        align-items: center;
+        color: var(--color-primary);
+    }
+
+    /* Benefits Card */
+    .side-col {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .benefits-card h3, .open-app-card h3 {
+        color: white;
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .benefit-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .benefit-icon {
+        font-size: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        color: var(--color-primary);
+    }
+    
+    .benefit-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .benefit-text strong {
+        display: block;
+        color: white;
+        margin-bottom: 0.2rem;
+    }
+
+    .benefit-text span {
+        font-size: 0.9rem;
+        color: #999;
+    }
+
+    /* Open Application Card */
+    .open-app-card {
+        background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(227,6,19,0.05) 100%);
+    }
+
+    .open-app-card p {
+        color: #aaa;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .btn-link {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: gap 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-link:hover {
+        gap: 1rem;
+        color: white;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .bento-grid {
+            grid-template-columns: 1fr;
+        }
+        .hero-section {
+            height: auto;
+            padding: 8rem 0 6rem;
+        }
+    }
+</style>
