@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Projects from '../components/Projects.astro';
+---
+
+<Layout title="Projecten | R&D Bouwgroep">
+  <div class="page-spacer"></div>
+  <Projects showLink={false} />
+</Layout>
+
+<style>
+  .page-spacer {
+    height: 120px;
+    /* Projects usually has white bg, but check if spacing needs background */
+  }
+  
+  @media (max-width: 768px) {
+    .page-spacer { height: 100px; }
+  }
+</style>

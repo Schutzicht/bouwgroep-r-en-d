@@ -1,4 +1,8 @@
 ---
+interface Props {
+  showButton?: boolean;
+}
+const { showButton = true } = Astro.props;
 ---
 
 <section id="about" class="section">
@@ -8,33 +12,37 @@
         <h4 class="text-primary">Over R&D Bouwgroep</h4>
         <h2>Waar Luxe en Comfort <br>Samenkomen</h2>
         <p class="lead">
-          Uw keus voor exclusief sanitair, tegelwerken en wellness.
+          Uw specialist in badkamers, tegelwerk en zwembaden.
         </p>
         <p>
-          R&D Bouwgroep is uw specialist voor renovaties en nieuwbouw in het hogere segment. 
-          Of het nu gaat om een complete badkamerverbouwing, het leggen van een exclusieve marmeren vloer 
-          of het realiseren van uw eigen wellness aan huis: wij leveren vakwerk.
+          R&D Bouwgroep renoveert complete badkamers en verzorgt hoogwaardig tegelwerk voor vloeren en wanden. 
+          Daarnaast hebben wij ruime ervaring in installatiewerk en realiseren wij zelfs complete zwembaden. 
+          Ons grote team van specialisten werkt met oog voor detail aan uw perfecte resultaat.
         </p>
         <div class="features">
           <div class="feature">
             <span class="check">✓</span>
-            <span>Persoonlijke begeleiding</span>
+            <span>Badkamer & Toilet Renovatie</span>
           </div>
           <div class="feature">
             <span class="check">✓</span>
-            <span>Hoogwaardige materialen</span>
+            <span>Tegelwerk & Vloeren</span>
           </div>
           <div class="feature">
             <span class="check">✓</span>
-            <span>Jarenlange ervaring</span>
+            <span>Zwembaden & Wellness</span>
+          </div>
+          <div class="feature">
+            <span class="check">✓</span>
+            <span>Ervaring in Installatiewerk</span>
           </div>
         </div>
-        <a href="#contact" class="btn" style="margin-top: 2rem;">Meer over ons</a>
+        {showButton && <a href="/over-ons" class="btn" style="margin-top: 2rem;">Meer over ons</a>}
       </div>
 
       <div class="intro-images">
         <div class="img-1">
-          <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/badkamer.jpg" alt="Moderne Badkamer" />
+          <img src="/RenD Persooneel/cinematic medewerker binnen aan het werk.jpeg" alt="R&D Vakman aan het werk" />
         </div>
         <div class="img-2">
           <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/zwart-marmer.jpg" alt="Marmer Detail" />

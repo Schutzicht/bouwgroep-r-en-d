@@ -21,6 +21,7 @@ const projects = [
     image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/2-4.jpg" 
   }
 ];
+const { showLink = true } = Astro.props;
 ---
 
 <section id="projects" class="section">
@@ -45,9 +46,11 @@ const projects = [
       ))}
     </div>
     
-    <div class="text-center mt-xl">
-      <a href="#" class="btn btn-outline">Alle Projecten</a>
-    </div>
+    {showLink && (
+      <div class="text-center mt-xl">
+        <a href="/projecten" class="btn btn-outline">Alle Projecten</a>
+      </div>
+    )}
   </div>
 </section>
 
@@ -98,7 +101,7 @@ const projects = [
     height: 400px;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Luxurious soft shadow */
     position: relative;
   }
   

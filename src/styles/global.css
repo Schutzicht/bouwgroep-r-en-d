@@ -4,20 +4,22 @@
 :root {
     /* Brand Colors */
     --color-primary: #e30613;
-    /* Correct Brighter Brand Red */
-    /* R&D Red */
+    /* Original R&D Bright Red */
     --color-dark: #121212;
     /* Deep Dark */
     --color-dark-grey: #222222;
     /* Card BG */
-    --color-light-grey: #f5f5f5;
+    --color-light-grey: #f9f8f4;
+    /* Warm Alabaster/Sand off-white */
     --color-white: #ffffff;
 
     /* Usage */
     --color-bg: var(--color-white);
     --color-text-main: var(--color-dark);
-    --color-text-muted: #666666;
-    --color-border: #e0e0e0;
+    --color-text-muted: #555555;
+    /* Slightly darker for better readability on warm bg */
+    --color-border: #e6e4dc;
+    /* Warm border */
 
     /* Dark Mode Overrides (if needed) or Sections */
     --color-section-dark: var(--color-dark);
@@ -141,6 +143,8 @@ img {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    border-radius: 4px;
+    /* Slight radius for premium feel, not full pill unless requested */
 }
 
 .btn::after {

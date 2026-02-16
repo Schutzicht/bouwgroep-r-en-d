@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Installatiewerk | R&D Bouwgroep">
+  <div class="page-header">
+    <div class="container">
+      <h1>Technisch <span class="text-primary">Installatiewerk</span></h1>
+      <p class="lead">De onzichtbare maar essentiële basis van elk succesvol project.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="split-content">
+        <div class="text-col">
+          <h2>Betrouwbare <span class="text-primary">Techniek</span></h2>
+          <p>
+            Mooi tegelwerk is niets zonder een goede technische basis. Lekkages, verstoppingen of koude douches 
+            wilt u koste wat kost voorkomen. R&D Bouwgroep combineert bouwkundig werk met installatietechniek. 
+            Zo weten we zeker dat wat we bouwen, ook technisch klopt.
+          </p>
+          
+          <div class="services-list">
+            <h3>Onze Expertise</h3>
+            <ul>
+              <li>
+                <strong>Sanitair Installatie</strong>
+                <p>Aansluiten van kranen, douches, baden en toiletten, inclusief leidingwerk.</p>
+              </li>
+              <li>
+                <strong>Vloerverwarming</strong>
+                <p>Infrezen en aansluiten van comfortabele vloerverwarming onder uw nieuwe tegelvloer.</p>
+              </li>
+              <li>
+                <strong>Waterbehandeling</strong>
+                <p>Installatie van waterontharders voor een kalkvrije badkamer en langere levensduur van uw sanitair.</p>
+              </li>
+              <li>
+                <strong>Ventilatie</strong>
+                <p>Mechanische ventilatiesystemen om vochtproblemen en schimmel te voorkomen.</p>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/#contact" class="btn">Meer informatie</a>
+        </div>
+        
+        <div class="image-col">
+          <!-- Using a simpler image or abstract for technical work if specific install photo missing, reusing bathroom detail for context -->
+          <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/2-4.jpg" alt="Installatiewerk Detail" class="main-img" />
+          <div class="info-block">
+            <h4>Alles in één hand</h4>
+            <p>Geen gedoe met aparte loodgieters of elektriciens. Wij regelen het totaalplaatje.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background-color: var(--color-light-grey);
+    padding: 8rem 0 4rem;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 1rem auto 0;
+  }
+
+  .split-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .services-list {
+    margin-top: 2rem;
+  }
+  
+  .services-list h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-light-grey);
+    padding-bottom: 0.5rem;
+  }
+
+  .services-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .services-list strong {
+    display: block;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .image-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .main-img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .info-block {
+    background: var(--color-dark);
+    color: white;
+    padding: 2rem;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .info-block h4 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-block p {
+    color: #ccc;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .split-content { grid-template-columns: 1fr; }
+    .page-header { padding: 6rem 0 3rem; }
+  }
+</style>

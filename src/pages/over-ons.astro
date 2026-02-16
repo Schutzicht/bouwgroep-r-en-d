@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Over R&D Bouwgroep | Vakmanschap & Kwaliteit">
+  <div class="page-header">
+    <div class="container">
+      <h1>Over <span class="text-primary">R&D Bouwgroep</span></h1>
+      <p class="lead">Een hecht team van vakmensen met passie voor perfectie.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="text-col">
+          <h2>Ons <span class="text-primary">Verhaal</span></h2>
+          <p>
+            R&D Bouwgroep is ontstaan uit een passie voor mooi werk. Wat begon als een klein team is uitgegroeid 
+            tot een volwaardige specialist in badkamers, tegelwerken en zwembaden. 
+          </p>
+          <p>
+            Wij geloven dat een verbouwing geen stressvol project hoeft te zijn. Door heldere communicatie, 
+            korte lijnen en vooral vakmanschap, zorgen wij dat u kunt genieten van het proces én het eindresultaat.
+          </p>
+          <p>
+            Onze kracht ligt in onze mensen. Geen externe partijen die langs elkaar heen werken, maar één 
+            ingespeeld team dat voor elkaar door het vuur gaat. Dat merkt u op de werkvloer: er wordt netjes 
+            gewerkt, meegedacht en gelachen.
+          </p>
+          
+          <div class="stats-box">
+             <div class="stat">
+               <span class="num">10+</span>
+               <span class="label">Jaar Ervaring</span>
+             </div>
+             <div class="stat">
+               <span class="num">100+</span>
+               <span class="label">Projecten</span>
+             </div>
+          </div>
+        </div>
+        
+        <div class="image-col">
+           <!-- Placeholder for Team Photo -->
+           <!-- Real Employee Photo -->
+           <div class="team-photo-wrapper">
+             <img src="/RenD Persooneel/cinematic medewerker binnen aan het werk.jpeg" alt="R&D Vakman aan het werk" class="main-img" /> 
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light team-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Ons <span class="text-primary">Team</span></h2>
+        <p class="subtitle">De gezichten achter het vakwerk</p>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-member-card">
+          <div class="member-img">
+             <img src="/RenD Persooneel/Medewerker buiten aan het werk.jpeg" alt="R&D Medewerker Buiten" />
+          </div>
+        </div>
+        <div class="team-member-card">
+          <div class="member-img">
+             <img src="/RenD Persooneel/cinematic medewerker binnen aan het werk.jpeg" alt="R&D Medewerker Binnen" />
+          </div>
+        </div>
+        <!-- Future photos can be added here -->
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-header {
+    background-color: var(--color-light-grey);
+    padding: 8rem 0 4rem;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 1rem auto 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .stats-box {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+  }
+
+  .stat .num {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .stat .label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  .main-img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .bg-light {
+    background-color: var(--color-light-grey);
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .subtitle {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-text-muted);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .team-member-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .team-member-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .member-img {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .team-member-card:hover .member-img img {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .page-header { padding: 6rem 0 3rem; }
+  }
+</style>

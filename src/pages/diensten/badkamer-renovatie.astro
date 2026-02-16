@@ -1,0 +1,171 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Badkamer Renovatie | R&D Bouwgroep">
+  <div class="page-header">
+    <div class="container">
+      <h1>Badkamer <span class="text-primary">Renovatie</span></h1>
+      <p class="lead">Van sloop tot oplevering: wij realiseren uw droombadkamer volledig in eigen beheer.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="split-content">
+        <div class="text-col">
+          <h2>Complete <span class="text-primary">Ontzorging</span></h2>
+          <p>
+            Een badkamerrenovatie is een ingrijpend proces. Bij R&D Bouwgroep nemen we u alle zorgen uit handen. 
+            Van het eerste ontwerp tot de laatste kitrand: wij coördineren en voeren alles zelf uit.
+          </p>
+          <p>
+            Onze vakmensen zijn gespecialiseerd in het hogere segment. We werken met hoogwaardige materialen, 
+            grootformaat tegels en exclusief sanitair. Omdat we alle disciplines in huis hebben 
+            (loodgieterswerk, elektra, stukadoorswerk, tegelzetten), heeft u één aanspreekpunt en een strakke planning.
+          </p>
+          
+          <div class="process-steps">
+            <h3>Onze Werkwijze</h3>
+            <ul>
+              <li>
+                <span class="step-num">1</span>
+                <div>
+                  <strong>Inventarisatie & Advies</strong>
+                  <p>We bespreken uw wensen, de technische mogelijkheden en adviseren over indeling en materialen.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div>
+                  <strong>Sloop & Voorbereiding</strong>
+                  <p>We strippen de oude badkamer vakkundig en voeren het puin af. Leidingwerk wordt verlegd en wanden worden uitgevlakt.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div>
+                  <strong>Installatie & Afwerking</strong>
+                  <p>Opbouw van de nieuwe badkamer, nauwkeurig tegelwerk en montage van sanitair en meubels.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">4</span>
+                <div>
+                  <strong>Oplevering</strong>
+                  <p>We lopen alles samen na en leveren de badkamer gebruiksklaar en schoon op.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/#contact" class="btn">Vraag een offerte aan</a>
+        </div>
+        
+        <div class="image-col">
+          <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/badkamer.jpg" alt="Luxe Badkamer Renovatie" class="main-img" />
+          <div class="img-grid">
+            <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/Banner-foto-1.jpg" alt="Detail Badkamer" />
+            <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/4.jpg" alt="Douche" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background-color: var(--color-light-grey);
+    padding: 8rem 0 4rem;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 1rem auto 0;
+  }
+
+  .split-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .process-steps {
+    margin: 3rem 0;
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .process-steps h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .process-steps ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .process-steps li {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .step-num {
+    background-color: var(--color-primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .image-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .main-img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .img-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .split-content { grid-template-columns: 1fr; }
+    .page-header { padding: 6rem 0 3rem; }
+  }
+</style>

@@ -1,28 +1,28 @@
 ---
 const services = [
   {
-    title: "Badkamers",
-    description: "Van ontwerp tot realisatie: wij bouwen uw droombadkamer met oog voor detail.",
+    title: "Badkamer Renovatie",
+    description: "Complete renovatie van uw badkamer. Wij verzorgen het hele proces, van sloop tot de laatste kitrand.",
     image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/badkamer.jpg",
-    link: "#"
+    link: "/diensten/badkamer-renovatie"
   },
   {
-    title: "Tegels",
-    description: "Exclusieve collectie wand- en vloertegels van topkwaliteit.",
+    title: "Tegelwerk",
+    description: "Vakkundig tegelwerk voor vloeren, wanden en complexe patronen. Strak en duurzaam resultaat.",
     image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/zwart-marmer.jpg",
-    link: "#"
+    link: "/diensten/tegelwerk"
   },
   {
-    title: "Tegelwerken",
-    description: "Onze vakkundige tegelzetters zorgen voor een perfect eindresultaat.",
-    image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/3.jpg",
-    link: "#"
-  },
-  {
-    title: "Wellness",
-    description: "Creëer een oase van rust in uw eigen huis met onze wellness oplossingen.",
+    title: "Zwembaden",
+    description: "Realisatie van complete zwembaden en wellness ruimtes. Van aanleg tot technische installatie.",
     image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/Banner-foto-2.jpg",
-    link: "#"
+    link: "/diensten/zwembaden"
+  },
+  {
+    title: "Installatiewerk",
+    description: "Onze specialisten hebben ruime ervaring in al het benodigde installatiewerk voor uw project.",
+    image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/3.jpg",
+    link: "/diensten/installatiewerk"
   }
 ];
 ---
@@ -79,16 +79,16 @@ const services = [
     background: white;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04); /* Softer base shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
   .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Smoother hover shadow */
   }
 
   .card-img {

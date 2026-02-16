@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Services from '../components/Services.astro';
+import BathtubShowcase from '../components/BathtubShowcase.astro';
+---
+
+<Layout title="Diensten | R&D Bouwgroep">
+  <div class="page-spacer"></div>
+  <Services />
+  <BathtubShowcase />
+</Layout>
+
+<style>
+  .page-spacer {
+    height: 120px;
+    background-color: var(--color-light-grey); 
+  }
+  
+  @media (max-width: 768px) {
+    .page-spacer { height: 100px; }
+  }
+</style>

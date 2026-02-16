@@ -45,7 +45,7 @@ const currentYear = new Date().getFullYear();
               <!-- Map Pin -->
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </span>
-            <span>Ambachtsweg 4<br>4387 BN Vlissingen</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Ambachtsweg+4+4387+BN+Vlissingen" target="_blank" rel="noopener noreferrer">Ambachtsweg 4<br>4387 BN Vlissingen</a>
           </li>
           <li>
             <span class="icon">
@@ -102,7 +102,7 @@ const currentYear = new Date().getFullYear();
       </div>
       <div class="footer-info">
         <p>&copy; {currentYear} R&D Bouwgroep. Alle rechten voorbehouden.</p>
-        <p class="credits">Website door <a href="https://zee-zicht.nl" target="_blank">zee-zicht.nl</a></p>
+        <p class="credits">Website door <a href="https://zee-zicht.nl" target="_blank" class="text-primary" style="font-weight: bold;">zee-zicht.nl</a></p>
       </div>
     </div>
   </div>
@@ -311,7 +311,7 @@ const currentYear = new Date().getFullYear();
   }
 
   .credits a {
-    color: #888;
+    color: var(--color-primary);
   }
 
   /* Back to Top */

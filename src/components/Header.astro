@@ -9,9 +9,9 @@
 
     <nav id="main-nav">
       <ul>
-        <li><a href="/#about" class="nav-link">Over Ons</a></li>
-        <li><a href="/#services" class="nav-link">Diensten</a></li>
-        <li><a href="/#projects" class="nav-link">Projecten</a></li>
+        <li><a href="/over-ons" class="nav-link">Over Ons</a></li>
+        <li><a href="/diensten" class="nav-link">Diensten</a></li>
+        <li><a href="/projecten" class="nav-link">Projecten</a></li>
         <li><a href="/vacatures" class="nav-link">Vacatures</a></li>
         <li><a href="/#contact" class="nav-link btn-nav">Contact</a></li>
       </ul>
@@ -28,9 +28,9 @@
 <div id="mobile-menu-overlay">
   <nav>
     <ul>
-      <li><a href="/#about" class="mobile-link">Over Ons</a></li>
-      <li><a href="/#services" class="mobile-link">Diensten</a></li>
-      <li><a href="/#projects" class="mobile-link">Projecten</a></li>
+      <li><a href="/over-ons" class="mobile-link">Over Ons</a></li>
+      <li><a href="/diensten" class="mobile-link">Diensten</a></li>
+      <li><a href="/projecten" class="mobile-link">Projecten</a></li>
       <li><a href="/vacatures" class="mobile-link">Vacatures</a></li>
       <li><a href="/#contact" class="mobile-link">Contact</a></li>
     </ul>
@@ -53,7 +53,7 @@
   
   .header-island {
     pointer-events: auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85); /* More opaque, warmer base */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 0.75rem 2rem;
@@ -63,8 +63,8 @@
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    border: 1px solid rgba(255, 255, 255, 0.4);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 </style>
@@ -80,8 +80,11 @@
     width: auto !important;
     max-width: 900px !important; /* Increased to fit navigation */
     gap: 1.5rem !important;
-    background: rgba(255, 255, 255, 0.98) !important;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+    background: rgba(253, 252, 248, 0.95) !important; /* Very warm white */
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
   }
   
   header.scrolled .logo-wrapper {
@@ -214,7 +217,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(18, 18, 18, 0.98);
+    background-color: rgba(30, 30, 30, 0.98); /* Softer dark */
     backdrop-filter: blur(10px);
     z-index: 999;
     padding-top: 8rem;
