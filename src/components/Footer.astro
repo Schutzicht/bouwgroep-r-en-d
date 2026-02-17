@@ -238,8 +238,10 @@ const currentYear = new Date().getFullYear();
     padding: 0.8rem 1rem;
     color: white;
     font-family: inherit;
+    color: white;
+    font-family: inherit;
     width: 100%;
-    border-radius: 4px 0 0 4px;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
     outline: none;
   }
 
@@ -249,7 +251,7 @@ const currentYear = new Date().getFullYear();
     color: white;
     padding: 0 1.2rem;
     cursor: pointer;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     font-size: 1.2rem;
     transition: background 0.3s;
   }
@@ -261,7 +263,7 @@ const currentYear = new Date().getFullYear();
   .map-container {
     margin-top: 1rem;
     height: 180px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.1);
   }

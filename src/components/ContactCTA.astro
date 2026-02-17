@@ -200,14 +200,30 @@
     letter-spacing: 1.2px;
     color: white; /* Force white */
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
   }
 
   .form-group input, 
-  .form-group textarea {
+  .form-group input {
     background: rgba(255, 255, 255, 0.08); /* Lighter background for inputs */
     border: 1px solid rgba(255,255,255,0.2);
     padding: 1.2rem;
     border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group textarea {
+    background: rgba(255, 255, 255, 0.08); /* Lighter background for inputs */
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 1.2rem;
+    cursor: pointer;
+    border-radius: var(--radius-btn);
     color: white;
     font-family: inherit;
     font-size: 1rem;

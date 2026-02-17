@@ -125,10 +125,11 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-dark);
   }
 
-  .main-img {
+  .intro-img {
     width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: auto;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   }
 
   .bg-light {
@@ -155,7 +156,7 @@ import Layout from '../layouts/Layout.astro';
   .team-member-card {
     background: white;
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: var(--radius-sm); /* Consistent 4px */
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
   }

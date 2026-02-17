@@ -45,7 +45,7 @@ const { showButton = true } = Astro.props;
           <img src="/RenD Persooneel/cinematic medewerker binnen aan het werk.jpeg" alt="R&D Vakman aan het werk" />
         </div>
         <div class="img-2">
-          <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/zwart-marmer.jpg" alt="Marmer Detail" />
+          <img src="/generated-projects/tiling-detail.png" alt="Marmer Detail" />
           <div class="exp-box">
             <span class="num">10+</span>
             <span class="txt">Jaar<br>Ervaring</span>
@@ -120,7 +120,8 @@ const { showButton = true } = Astro.props;
     top: 0;
     left: 0;
     z-index: 1;
-    border-radius: 4px;
+    z-index: 1;
+    border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   }
@@ -131,8 +132,9 @@ const { showButton = true } = Astro.props;
     bottom: 0;
     right: 0;
     z-index: 2;
+    z-index: 2;
     border: 8px solid white;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     overflow: visible; /* Allow box to stick out */
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   }

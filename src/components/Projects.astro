@@ -3,22 +3,22 @@ const projects = [
   {
     title: "Badkamer Renovatie",
     location: "Vlissingen",
-    image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/4.jpg"
+    image: "/generated-projects/luxury-bathroom.png"
   },
   {
     title: "Nieuwbouw Wellness",
     location: "Middelburg",
-    image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/Banner-foto-1.jpg"
+    image: "/generated-projects/indoor-pool.png"
   },
   {
     title: "Marmeren Vloer",
     location: "Goes",
-    image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/1-4.jpg" 
+    image: "/generated-projects/tiling-detail.png" 
   },
   {
     title: "Toilet Design",
     location: "Domburg",
-    image: "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/2-4.jpg" 
+    image: "/generated-projects/modern-toilet.png" 
   }
 ];
 const { showLink = true } = Astro.props;
@@ -99,7 +99,7 @@ const { showLink = true } = Astro.props;
 
   .project-img {
     height: 400px;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Luxurious soft shadow */
     position: relative;

@@ -36,6 +36,15 @@
     --spacing-xl: 5rem;
     --spacing-xxl: 8rem;
 
+    /* Border Radius - Consistent System */
+    --radius-sm: 12px;
+    /* Cards, Images, Inputs (Friendly soft) */
+    --radius-md: 24px;
+    /* Large panels, Modals */
+    --radius-btn: 50px;
+    /* Buttons - Pill shape */
+    --radius-pill: 50px;
+
     /* Animation */
     --ease-sharp: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -143,8 +152,8 @@ img {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    border-radius: 4px;
-    /* Slight radius for premium feel, not full pill unless requested */
+    border-radius: var(--radius-btn);
+    /* Soft pill shape for premium friendly feel */
 }
 
 .btn::after {
