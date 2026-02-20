@@ -47,11 +47,8 @@ const services = [
               <h3>{service.title}</h3>
               <p class="liquid-desc">{service.description}</p>
               
-              <div class="liquid-btn-wrapper">
-                <span class="liquid-btn-text">Lees meer</span>
-                <div class="liquid-arrow-btn">
-                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </div>
+              <div class="mt-4">
+                <span class="btn-pill btn-pill-outline-light">Lees meer &rarr;</span>
               </div>
             </div>
           </div>
@@ -134,7 +131,8 @@ const services = [
     border-radius: 24px; /* Extreem zachte, vloeibare hoeken */
     overflow: hidden;
     text-decoration: none;
-    min-height: 420px; /* Iets lagere kaarten voor betere desktop verhoudingen */
+    aspect-ratio: 4/5; /* Vierkanter formaat zoals gewenst */
+    min-height: 340px; /* Fallback */
     /* De "Liquid" border: semi-transparant wit/grijs dat licht opvangt */
     border: 1px solid rgba(255, 255, 255, 0.08); 
     box-shadow: 
@@ -285,48 +283,35 @@ const services = [
     transition-delay: 0.1s;
   }
 
-  /* --- LIQUID BUTTON OVERHAUL --- */
-  .liquid-btn-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .liquid-btn-text {
-    font-family: var(--font-body);
+  /* --- BUTTON STYLING (Hero Match) --- */
+  .mt-4 { margin-top: 1rem; }
+  
+  .btn-pill {
+    display: inline-flex;
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    font-family: var(--font-heading, sans-serif);
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #ffffff;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-  }
-
-  .liquid-card:hover .liquid-btn-text {
-    opacity: 1;
-  }
-
-  .liquid-arrow-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    /* Glazerige pill/circle button */
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    backdrop-filter: blur(4px);
+    letter-spacing: 0.5px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    align-items: center;
+    gap: 0.5rem;
   }
 
-  .liquid-card:hover .liquid-arrow-btn {
-    background: var(--color-primary); /* Vult zich met brand rood als liquid */
+  .btn-pill-outline-light {
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #ffffff;
+  }
+
+  /* Hover effect happens when the whole card is hovered */
+  .liquid-card:hover .btn-pill-outline-light {
+    background-color: var(--color-primary);
     border-color: var(--color-primary);
-    transform: translateX(10px);
-    box-shadow: 0 0 20px rgba(160, 10, 19, 0.4); /* Rode gloed */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.4);
   }
 
   @media (max-width: 768px) {
