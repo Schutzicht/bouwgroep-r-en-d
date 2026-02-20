@@ -27,26 +27,36 @@ const services = [
 ];
 ---
 
-<section id="services" class="section bg-light">
-  <div class="container">
+<section id="services" class="liquid-services-section">
+  <div class="container relative-z">
     <div class="section-header text-center">
-      <h2 class="text-dark">Onze <span class="text-primary">Diensten</span></h2>
-      <p class="subtitle">Specialist in het hogere segment</p>
+      <h2 class="title-liquid text-white">Onze <span class="text-primary">Diensten</span></h2>
+      <p class="subtitle brand-accent-text-light">Specialist in het hogere segment</p>
     </div>
 
-    <div class="services-grid">
+    <div class="liquid-grid">
       {services.map(service => (
-        <a href={service.link} class="service-card group">
-          <div class="card-img">
+        <a href={service.link} class="liquid-card group">
+          <div class="liquid-bg-img">
             <img src={service.image} alt={service.title} />
-            <div class="overlay"></div>
-            <div class="icon-box">
-              <span class="arrow">➜</span>
-            </div>
           </div>
-          <div class="card-body">
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
+          <div class="liquid-overlay"></div>
+          
+          <div class="liquid-content">
+            <div class="content-top">
+               <div class="brand-accent-dot"></div>
+            </div>
+            <div class="content-bottom">
+              <h3>{service.title}</h3>
+              <p class="liquid-desc">{service.description}</p>
+              
+              <div class="liquid-btn-wrapper">
+                <span class="liquid-btn-text">Lees meer</span>
+                <div class="liquid-arrow-btn">
+                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </div>
+            </div>
           </div>
         </a>
       ))}
@@ -55,108 +65,298 @@ const services = [
 </section>
 
 <style>
-  .bg-light {
-    background-color: var(--color-light-grey);
+  .liquid-services-section {
+    padding: 10rem 0;
+    background-color: #0f0f11; /* Diep, rijk donker, bijna zwart voor optimaal liquid glass effect */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtiele ambient glow in de background voor extra diepte */
+  .liquid-services-section::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(160, 10, 19, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    position: relative;
+    z-index: 2;
   }
 
   .section-header {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
   }
 
-  .subtitle {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    margin-top: 0.5rem;
+  .title-liquid {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
   }
 
-  .services-grid {
+  .title-liquid span {
+    color: var(--color-primary); /* Rood accent */
+  }
+
+  .brand-accent-text-light {
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  .liquid-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; /* Iets krappere gap voor een dichte muur vibes */
   }
 
-  .service-card {
-    background: white;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04); /* Softer base shadow */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  /* --- LIQUID CARD STYLING --- */
+  .liquid-card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
-  }
-
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Smoother hover shadow */
-  }
-
-  .card-img {
-    position: relative;
-    height: 250px;
+    border-radius: 24px; /* Extreem zachte, vloeibare hoeken */
     overflow: hidden;
+    text-decoration: none;
+    min-height: 500px; /* Hoge elegante kaarten */
+    /* De "Liquid" border: semi-transparant wit/grijs dat licht opvangt */
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 
+      0 20px 50px rgba(0,0,0,0.5),
+      inset 0 0 0 1px rgba(255,255,255,0.05); /* Interne reflectie */
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateZ(0); /* Force GPU */
   }
 
-  .card-img img {
+  .liquid-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 30px 60px rgba(0,0,0,0.6),
+      0 0 40px rgba(160, 10, 19, 0.15), /* Rode ambient glow rond de kaart op hover */
+      inset 0 0 0 1px rgba(255,255,255,0.15);
+  }
+
+  .liquid-bg-img {
+    position: absolute;
+    inset: -20px; /* Overshoot voor Parallax / Blur bleed */
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    z-index: 1;
+  }
+  
+  .liquid-bg-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+    filter: blur(0px) brightness(1);
   }
 
-  .service-card:hover .card-img img {
-    transform: scale(1.1);
+  .liquid-card:hover .liquid-bg-img img {
+    transform: scale(1.08);
+    filter: blur(4px) brightness(0.85); /* Subtiele waas op de hele image tijdens hover */
   }
 
-  .overlay {
+  /* De echte LIQUID OVERLAY (nu alleen op onderste helft) */
+  .liquid-overlay {
+    position: absolute;
+    inset: auto -10px -10px -10px; /* Alleen randen onder overslaan */
+    height: 65%; /* Bedekt alleen de onderste 65% van de kaart */
+    z-index: 2;
+    overflow: hidden;
+    /* Een diepe gradient die het glas-effect creëert */
+    background: linear-gradient(
+      180deg, 
+      rgba(15, 15, 17, 0) 0%, 
+      rgba(15, 15, 17, 0.6) 40%, 
+      rgba(15, 15, 17, 0.95) 100%
+    );
+    /* Vervoeg de bovenkant zodat blur/zwart zacht invalt (geen harde rand) */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
+    transition: background 0.6s ease;
+  }
+
+  /* Het blur effect scheiden we veilig naar de pseudo-layer om rendering bugs (Safari) te voorkomen */
+  .liquid-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: backdrop-filter 0.6s ease, -webkit-backdrop-filter 0.6s ease;
+    will-change: filter;
+  }
+
+  .liquid-card:hover .liquid-overlay {
+    /* Op hover wordt het "glas" helderder/vloeibaarder aan bovenkant  */
+    background: linear-gradient(
+      180deg, 
+      rgba(15, 15, 17, 0) 0%, 
+      rgba(15, 15, 17, 0.3) 40%,
+      rgba(15, 15, 17, 0.8) 100%
+    );
+  }
+
+  .liquid-card:hover .liquid-overlay::before {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* Extra Liquid Shine Effect (bewegende lichtlijn op hover) */
+  .liquid-overlay::after {
+    content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: -150%;
+    width: 60%;
     height: 100%;
-    background: rgba(160, 10, 19, 0.8);
-    opacity: 0;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 3;
+    pointer-events: none;
+    will-change: left;
+  }
+
+  .liquid-card:hover .liquid-overlay::after {
+    left: 200%; /* Swipe de shine over het glas heen */
+  }
+
+  /* --- CONTENT STYLING --- */
+  .liquid-content {
+    position: relative;
+    z-index: 4; /* Boven de liquid layers */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2.5rem;
+  }
+
+  .brand-accent-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary); /* Rode dot linksboven voor balans */
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary);
+  }
+
+  .content-bottom {
+    transform: translateY(20px); /* Start iets te laag */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-card:hover .content-bottom {
+    transform: translateY(0); /* Slide up into perfect liquid view */
+  }
+
+  .liquid-content h3 {
+    color: #ffffff;
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  .liquid-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    opacity: 0; /* Verborgen rust */
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+  }
+
+  .liquid-card:hover .liquid-desc {
+    opacity: 1; /* Fade in als je door het water kijkt */
+    transform: translateY(0);
+    transition-delay: 0.1s;
+  }
+
+  /* --- LIQUID BUTTON OVERHAUL --- */
+  .liquid-btn-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .liquid-btn-text {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    opacity: 0.7;
     transition: opacity 0.3s ease;
   }
 
-  .service-card:hover .overlay {
-    opacity: 0.2;
+  .liquid-card:hover .liquid-btn-text {
+    opacity: 1;
   }
 
-  .icon-box {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: var(--color-primary);
-    width: 50px;
-    height: 50px;
+  .liquid-arrow-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    transform: translate(100%, 100%); /* Hidden initially */
-    transition: transform 0.3s ease;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* Glazerige pill/circle button */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .service-card:hover .icon-box {
-    transform: translate(0, 0);
+  .liquid-card:hover .liquid-arrow-btn {
+    background: var(--color-primary); /* Vult zich met brand rood als liquid */
+    border-color: var(--color-primary);
+    transform: translateX(10px);
+    box-shadow: 0 0 20px rgba(160, 10, 19, 0.4); /* Rode gloed */
   }
 
-  .card-body {
-    padding: 2rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-body h3 {
-    margin-bottom: 1rem;
-    color: var(--color-dark);
-    font-size: 1.25rem;
-  }
-
-  .card-body p {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
+  @media (max-width: 768px) {
+    .liquid-services-section {
+      padding: 6rem 0;
+    }
+    .title-liquid {
+      font-size: 2.5rem;
+    }
+    .liquid-grid {
+      grid-template-columns: 1fr;
+    }
+    /* Zorg dat tekst op mobiel wel altijd deels toonbaar is omdat er geen hover is */
+    .content-bottom {
+      transform: translateY(0);
+    }
+    .liquid-desc {
+      opacity: 0.9;
+      transform: translateY(0);
+    }
   }
 </style>

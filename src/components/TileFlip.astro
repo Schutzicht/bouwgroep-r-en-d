@@ -5,59 +5,94 @@
   <div class="container relative-z">
     <div class="row align-center mb-5">
       <div class="col-12 text-center">
-        <span class="eyebrow">Waarom R&D Bouwgroep</span>
-        <h2 class="section-title" style="color: white;">De Standaard in <span class="text-primary">Luxe</span></h2>
-        <div class="title-underline"></div>
+        <span class="eyebrow tracking-label">Waarom R&D Bouwgroep</span>
+        <h2 class="section-title title-elegant">De Standaard in <span>Luxe</span></h2>
       </div>
     </div>
     
     <div class="grid-layout">
       <!-- Item 1 -->
       <div class="feature-card">
-        <div class="icon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3 8 9l4 13 4-13-3-6"/></svg>
+        <div class="card-bg-img" style="background-image: url('/generated-projects/luxury-bathroom.png');"></div>
+        <div class="glass-pane"></div>
+        <div class="card-content">
+          <div class="brand-accent"></div>
+          <h3>Topkwaliteit</h3>
+          <p>Wij werken uitsluitend met premium materialen en A-merken voor een duurzaam, hoogwaardig eindresultaat.</p>
         </div>
-        <h3>Topkwaliteit</h3>
-        <p>Wij werken uitsluitend met premium materialen en A-merken voor een duurzaam, hoogwaardig eindresultaat.</p>
       </div>
 
       <!-- Item 2 -->
       <div class="feature-card">
-        <div class="icon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        <div class="card-bg-img" style="background-image: url('/generated-projects/indoor-pool.png');"></div>
+        <div class="glass-pane"></div>
+        <div class="card-content">
+          <div class="brand-accent"></div>
+          <h3>Maatwerk</h3>
+          <p>Van ontwerp tot realisatie: wij leveren vakwerk tot op de millimeter nauwkeurig, volledig afgestemd op uw wensen.</p>
         </div>
-        <h3>Maatwerk</h3>
-        <p>Van ontwerp tot realisatie: wij leveren vakwerk tot op de millimeter nauwkeurig, volledig afgestemd op uw wensen.</p>
       </div>
 
       <!-- Item 3 -->
       <div class="feature-card">
-        <div class="icon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <div class="card-bg-img" style="background-image: url('/generated-projects/tiling-detail.png');"></div>
+        <div class="glass-pane"></div>
+        <div class="card-content">
+          <div class="brand-accent"></div>
+          <h3>Perfectie</h3>
+          <p>Strak tegelwerk en naadloze afwerking. Wij nemen geen genoegen met minder dan het allerbeste resultaat.</p>
         </div>
-        <h3>Perfectie</h3>
-        <p>Strak tegelwerk en naadloze afwerking. Wij nemen geen genoegen met minder dan het allerbeste resultaat.</p>
       </div>
 
       <!-- Item 4 -->
       <div class="feature-card">
-        <div class="tile-shine"></div>
-        <div class="icon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="card-bg-img" style="background-image: url('/generated-projects/modern-toilet.png');"></div>
+        <div class="glass-pane"></div>
+        <div class="card-content">
+          <div class="brand-accent"></div>
+          <h3>Garantie</h3>
+          <p>Transparantie en zekerheid. U kunt rekenen op onze uitstekende service en uitgebreide nazorg.</p>
         </div>
-        <h3>Garantie</h3>
-        <p>Transparantie en zekerheid. U kunt rekenen op onze uitstekende service en uitgebreide nazorg.</p>
       </div>
+    </div>
+    
+    <div class="text-center" style="margin-top: 5rem;">
+      <a href="/over-ons" class="btn-pill btn-pill-outline">Ontdek onze werkwijze &rarr;</a>
     </div>
   </div>
 </section>
 
 <style>
   .tile-feature-section {
-    padding: 6rem 0;
-    background-color: #080808; /* Deep matte black */
-    color: white;
+    padding: 10rem 0;
+    /* Erg lichte, warme premium grijstint (bijna off-white) zonder foto */
+    background-color: #f7f7f6;
+    color: #1a1a1a;
     position: relative;
+    overflow: hidden;
+  }
+  
+  /* Tyopgraphy mirroring the Intro Stride logic */
+  .eyebrow.tracking-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary); /* Terug naar donker / rood */
+    opacity: 1;
+    display: block;
+  }
+
+  .section-title.title-elegant {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 3.5rem;
+    color: #1a1a1a; /* Terug naar donker */
+    letter-spacing: -0.02em;
   }
 
   /* Grid Layout */
@@ -70,102 +105,137 @@
     padding: 0 2rem;
   }
 
-  /* Card Style - PHYSICAL TILE LOOK */
+  /* Container setup resizes */
   .feature-card {
-    background-color: #1a1a1a;
-    /* Realistic Stone/Ceramic Texture */
-    background-image: 
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-    
-    /* Physical Bevel/Chamfer for 3D Tile Effect */
-    border-top: 1px solid rgba(255,255,255,0.15);
-    border-left: 1px solid rgba(255,255,255,0.05);
-    border-right: 1px solid rgba(0,0,0,0.5);
-    border-bottom: 4px solid #000;
-    
-    padding: 2rem;
-    border-radius: var(--radius-sm); /* Slight radius like real rect tiles */
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    
+    position: relative;
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Een hardere zachte schaduwlijn zodat de lichte foto's niet in de webachtergrond blenden! */
+    /* Forceren naar kaartvorm ongeacht inhoud */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    
-    /* Enforce Square Tile Shape */
-    aspect-ratio: 1 / 1; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    min-height: 280px; /* VERLAAGD VAN 400PX: veel knappere compacte tegel! */
+    border: 1px solid rgba(0,0,0,0.06); /* Subtiele edge border */
   }
 
-  /* Glossy Sheen Overlay */
-  .tile-shine {
+  /* The actual image inside the card */
+  .card-bg-img {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 40%, rgba(255,255,255,0.05) 100%);
-    pointer-events: none;
+    inset: -10px; /* Overshoot to prevent blur clipping edges */
+    background-size: cover;
+    background-position: center;
     z-index: 0;
+    transition: transform 0.8s ease;
+  }
+
+  /* Donkere gradient laag over de lichte foto's om ze los te trekken van de witte sectie */
+  .card-bg-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.15));
+    z-index: 1;
+  }
+
+  /* De Hero overvloei / frosted glass exact nagemaakt */
+  .glass-pane {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75); /* Iets meer dekking voor contrast tegen de Section kleur */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 2;
+    transition: background-color 0.4s ease;
+  }
+
+  /* Inhoud van de kaart */
+  .card-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
   }
 
   /* Elegant Hover */
   .feature-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    background-color: #222;
-    border-bottom-color: var(--color-primary); /* Color highlight on edge */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  }
-  
-  /* Icon Wrapper */
-  .icon-wrapper {
-    width: 60px;
-    height: 60px;
-    background: rgba(0,0,0,0.4); /* Deep inlay look */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.05);
-    /* Inset shadow for depth */
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
-    color: #ccc;
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s ease;
+    transform: translateY(-8px); 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.12); 
+    border-color: rgba(0,0,0,0.15);
   }
 
-  .feature-card:hover .icon-wrapper {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-    box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
-    transform: translateY(-2px);
+  .feature-card:hover .card-bg-img {
+    transform: scale(1.05); /* Lichte un-blur movement */
+  }
+
+  .feature-card:hover .glass-pane {
+    background: rgba(255, 255, 255, 0.55); /* Photo wordt duidelijker op hover! */
+  }
+  
+  /* Brand Accent (vervangt nummers) */
+  .brand-accent {
+    width: 24px;
+    height: 4px;
+    background-color: var(--color-primary); /* Rood accentuur uit the hero */
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
   }
 
   /* Typography */
   h3 {
-    font-size: 1.25rem;
-    font-weight: 700; /* Bolder for stone feel */
+    font-size: 1.4rem;
+    font-family: var(--font-heading, sans-serif);
+    font-weight: 600;
     margin-bottom: 1rem;
-    letter-spacing: 0.5px;
-    color: white;
+    color: #1a1a1a; /* Donkere text op de lichte cards */
     position: relative;
     z-index: 1;
-    text-transform: uppercase;
+    /* subtle accent line under title */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    width: 100%;
   }
 
   p {
-    font-size: 0.9rem;
-    color: #aaa;
+    font-size: 0.95rem;
     line-height: 1.6;
+    color: #333;
     margin: 0;
     position: relative;
     z-index: 1;
+  }
+  
+  /* Exacte Hero Knop Styling (btn-pill & btn-pill-outline-dark) */
+  .btn-pill {
+    display: inline-flex;
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-family: var(--font-heading, sans-serif);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  /* Exacte Hero "Bekijk projecten" knop (btn-pill-outline) */
+  .btn-pill-outline {
+    background-color: transparent;
+    border: 1px solid #1a1a1a; /* Harde zwarte lijn zoals in de Hero 'Bekijk projecten' */
+    color: #1a1a1a;
+  }
+  
+  .btn-pill-outline:hover {
+    background-color: rgba(0,0,0,0.05); /* Geen harde dark-fill, blijf transparant! */
   }
 
   /* Section Header */
@@ -182,7 +252,7 @@
   .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: white !important; /* Force White as requested */
+    color: var(--color-text-main);
   }
 
   .title-underline {

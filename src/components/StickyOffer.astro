@@ -1,7 +1,7 @@
 ---
 ---
 
-<a href="/#contact" class="sticky-offer-btn">
+<a href="/offerte-aanvragen" class="sticky-offer-btn">
   <div class="icon-pulse"></div>
   <span class="icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -41,7 +41,8 @@
     box-shadow: 0 10px 30px rgba(227, 6, 19, 0.5);
   }
 
-  .sticky-offer-btn.hide-sticky {
+  .sticky-offer-btn.hide-sticky,
+  .sticky-offer-btn.hide-top {
     opacity: 0;
     transform: translateY(100px);
     pointer-events: none;
@@ -103,7 +104,22 @@
     const stickyBtn = document.querySelector('.sticky-offer-btn');
     const contactSection = document.getElementById('contact');
 
-    if (stickyBtn && contactSection) {
+    if (!stickyBtn) return;
+    
+    // Hide at the top of the page (Hero Section)
+    const checkScroll = () => {
+      // 30% of viewport height before showing up
+      if (window.scrollY < window.innerHeight * 0.3) {
+        stickyBtn.classList.add('hide-top');
+      } else {
+        stickyBtn.classList.remove('hide-top');
+      }
+    };
+    
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll(); // Check once on init
+
+    if (contactSection) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {

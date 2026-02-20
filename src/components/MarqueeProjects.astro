@@ -1,0 +1,609 @@
+---
+const projects = [
+  {
+    title: "Badkamer Renovatie",
+    location: "Vlissingen",
+    image: "/generated-projects-real/bathroom.jpg",
+    category: "Sanitair",
+    story: "In Vlissingen hebben we een verouderde badkamer volledig getransformeerd tot een moderne, luxueuze ruimte. De focus lag op het gebruik van hoogwaardige, natuurlijke materialen en een naadloze afwerking. Een vrijstaand bad en maatwerk meubilair maken het plaatje compleet.",
+    review: "R&D Bouwgroep heeft prachtig werk geleverd. Het oog voor detail is ongekend en ze dachten constant met ons mee. Absolute topklasse!",
+    gallery: ["/generated-projects-real/bathroom.jpg", "/generated-projects-real/marble.jpg", "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/3.jpg"]
+  },
+  {
+    title: "Nieuwbouw Wellness",
+    location: "Middelburg",
+    image: "/generated-projects-real/wellness.jpg",
+    category: "Wellness",
+    story: "Voor een prachtige nieuwbouwvilla in Middelburg mochten wij de complete inpandige wellnessruimte realiseren. Het project omvatte een op maat gemaakte sauna, stoomcabine en zwembad, volledig bekleed met exclusieve mozaïek tegels.",
+    review: "Onze droom is werkelijkheid geworden. We hebben nu onze eigen spa aan huis. De afwerking en technische realisatie zijn van het hoogste niveau.",
+    gallery: ["/generated-projects-real/wellness.jpg", "/generated-projects-real/pool.jpg", "/generated-projects-real/marble.jpg"]
+  },
+  {
+    title: "Marmeren Vloer",
+    location: "Goes",
+    image: "/generated-projects-real/marble.jpg",
+    category: "Tegelwerk",
+    story: "Het leggen van grootformaat marmeren tegels vraagt om exceptioneel vakmanschap. Voor deze opdrachtgever in Goes hebben we de gehele begane grond voorzien van een naadloos gelegde marmeren vloer die een chique en ruimtelijk gevoel geeft.",
+    review: "Werkelijk vakwerk. De vloer ligt er fenomenaal in, geen enkele naad is voelbaar. Het team werkte netjes en overlegde alles perfect.",
+    gallery: ["/generated-projects-real/marble.jpg", "/generated-projects-real/bathroom.jpg", "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/badkamer.jpg"]
+  },
+  {
+    title: "Toilet Design",
+    location: "Domburg",
+    image: "/generated-projects-real/toilet.jpg",
+    category: "Sanitair",
+    story: "Een gastentoilet is het visitekaartje van de woning. We ontwierpen en bouwden dit zwevende toilet met een minimalistisch design, subtiele LED-verlichting en betonstuc wanden voor een industriële, exclusieve look.",
+    review: "Zelfs het kleine toilet voelt nu als een design hotel. Super strak afgewerkt.",
+    gallery: ["/generated-projects-real/toilet.jpg", "/generated-projects-real/bathroom.jpg"]
+  },
+  {
+    title: "Zwembad Aanleg",
+    location: "Zoutelande",
+    image: "/generated-projects-real/pool.jpg", 
+    category: "Zwembaden",
+    story: "Aanleg van een inpandig overloopzwembad inclusief klimaatbeheersing en wellness. Een uitdagend project dat we met veel passie van A tot Z hebben begeleid, waarbij we enkel met A-kwaliteit materialen werkten.",
+    review: "Een betrouwbare aannemer die gemaakte afspraken nakomt en meesterlijk tegelwerk oplevert.",
+    gallery: ["/generated-projects-real/pool.jpg", "/generated-projects-real/wellness.jpg"]
+  }
+];
+---
+
+<section id="recent-werk" class="section">
+  <div class="container-fluid">
+    <div class="section-header container">
+      <h2 class="text-dark">Recent <span class="text-primary">Werk</span></h2>
+      <p class="subtitle text-muted">Bekijk een selectie van onze projecten</p>
+    </div>
+
+    <div class="carousel-container">
+      <!-- Infinite Marquee Track -->
+      <div class="carousel-track">
+        <!-- Loop logic: pattern length 6. Duplicate enough for smooth loop -->
+        {[...projects, ...projects, ...projects, ...projects].map((project, index) => {
+          const mod = index % 4;
+          let labelPos = 'top';
+          if (mod === 0 || mod === 2) {
+             labelPos = 'bottom';
+          }
+
+          return (
+            <div class={`project-card-wrapper card-mod-${mod}`}>
+              <a href="#" class="card-link"
+                 data-title={project.title}
+                 data-category={project.category}
+                 data-story={project.story}
+                 data-review={project.review}
+                 data-gallery={project.gallery.join(',')}>
+                <div class="card-inner-relative">
+                  <div class="card-img">
+                    <!-- Label Overlay -->
+                    <div class={`category-label label-${labelPos}`}>
+                      {project.category} <span class="accent-line-red"></span>
+                    </div>
+                    <img src={project.image} alt={project.title} loading="lazy" />
+                  </div>
+                  
+                  <div class="card-content mobile-only">
+                    <h3>{project.title}</h3>
+                  </div>
+                </div>
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <div class="text-center mt-xl container mobile-only-btn">
+      <a href="/projecten" class="btn btn-outline">Alle Projecten</a>
+    </div>
+  </div>
+
+  <!-- POPUP MODAL TARGET -->
+  <div id="project-modal" class="project-modal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close" aria-label="Sluiten">&times;</button>
+      <div class="modal-body custom-scrollbar">
+        
+        <div class="modal-header">
+          <span class="eyebrow" id="modal-category"></span>
+          <h2 id="modal-title"></h2>
+          <div class="title-underline"></div>
+        </div>
+        
+        <div class="modal-info">
+          <div class="modal-story">
+            <h3>Het Project</h3>
+            <p id="modal-text"></p>
+          </div>
+          
+          <div class="modal-review" id="modal-review-container">
+            <div class="quote-icon">❝</div>
+            <p id="modal-review-text"></p>
+          </div>
+        </div>
+        
+        <div class="modal-gallery" id="modal-gallery">
+          <!-- Images injected here by JS -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- No JS needed for CSS marquee -->
+
+<style>
+  .section {
+    padding: 6rem 0;
+    overflow: hidden; /* Viewport Clip as requested */
+    background-color: var(--color-bg); 
+    background-image: 
+      radial-gradient(circle at 50% 50%, var(--color-light-grey) 0%, var(--color-bg) 100%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    color: var(--color-text-main);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .section-header h2 {
+    color: var(--color-text-main);
+  }
+
+  .subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .container-fluid {
+    width: 100%;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Container */
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hard clip */
+    padding: 3rem 0 16rem; /* Space for extreme vertical offsets */
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0; /* No gap, overlap handles spacing */
+    align-items: flex-start; 
+    width: max-content;
+    overflow: visible;
+    animation: marquee 80s linear infinite;
+    padding-left: 0; 
+    will-change: transform;
+  }
+  
+  /* --- CARD WRAPPER STYLES --- */
+  /* Replaced with inline tailwind / custom JS logic to bypass overrides */
+
+  /* Pause on hover EXCLUSIVELY over the cards */
+  .carousel-track:has(.card-link:hover) {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-25%); } /* 4 sets, move 1 set */
+  }
+
+  /* --- CARD WRAPPER STYLES --- */
+  .project-card-wrapper {
+    flex: 0 0 auto;
+    position: relative;
+    transition: transform 0.3s ease; 
+  }
+
+  .card-link {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  .card-inner-relative {
+    position: relative;
+  }
+
+  /* FOUR DISTINCT CARD MODES (Audio logic) */
+  .card-mod-0 { z-index: 10; width: 38vw; max-width: 560px; transform: translateY(80px); }
+  .card-mod-1 { z-index: 40; width: 46vw; max-width: 680px; transform: translateY(0px); }
+  .card-mod-2 { z-index: 5; width: 32vw; max-width: 480px; transform: translateY(80px); }
+  .card-mod-3 { z-index: 30; width: 42vw; max-width: 620px; transform: translateY(15px); }
+
+  /* OVERLAP AND DESKTOP TRANSFORMS */
+  @media (min-width: 600px) { 
+    .project-card-wrapper + .project-card-wrapper {
+      margin-left: -32px;
+    }
+  }
+
+  @media (min-width: 900px) { 
+    .project-card-wrapper + .project-card-wrapper {
+      margin-left: -48px;
+    }
+    .card-mod-0 { transform: translateY(160px); }
+    .card-mod-1 { transform: translateY(0); }
+    .card-mod-2 { transform: translateY(160px); }
+    .card-mod-3 { transform: translateY(30px); }
+  }
+
+  /* --- IMAGES --- */
+  .card-img {
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
+    background: var(--color-bg);
+    aspect-ratio: 16/9; /* Force Aspect Ratio */
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card-img img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+  }
+
+  /* --- LABELS --- */
+  .category-label {
+    position: absolute;
+    left: 0;
+    width: 100%; /* Volle breedte */
+    font-family: var(--font-heading, sans-serif);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-bg); 
+    background-color: rgba(20, 20, 20, 0.65); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.4rem 1.25rem; /* Dun, strak balkje */
+    border-radius: 0; 
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 40; 
+    pointer-events: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .label-top {
+    top: 0; 
+  }
+  
+  .label-bottom {
+    bottom: 0; 
+  }
+
+  .accent-line-red {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary, #e30613);
+    display: block;
+    border-radius: 2px;
+  }
+
+  /* Tablet: Reduced overlap */
+  @media (min-width: 600px) and (max-width: 899px) {
+    .carousel-track { animation-duration: 60s; }
+  }
+
+  /* Mobile: Single Card View, Reset Everything */
+  @media (max-width: 599px) {
+    .carousel-container {
+      padding: 2rem 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      height: auto;
+    }
+    
+    .carousel-track {
+      width: auto;
+      gap: 1rem;
+      animation: none; 
+      padding-left: 1rem;
+      padding-right: 1rem;
+      overflow: visible;
+    }
+
+    .project-card-wrapper {
+      width: 85vw !important; 
+      margin-left: 0 !important; 
+      transform: none !important;
+      z-index: 1 !important;
+      max-width: none !important;
+      scroll-snap-align: center;
+      flex: 0 0 auto !important;
+    }
+    
+    .card-img {
+      aspect-ratio: 16/9;
+      height: auto;
+    }
+
+    .category-label {
+      top: 0 !important; /* Terug naar overlay on mobile */
+      bottom: auto !important;
+      padding: 0.4rem 1rem;
+    }
+    
+    .mobile-only {
+      margin-top: 0.5rem; color: var(--color-text-main); display: block;
+    }
+  }
+
+  @media (min-width: 600px) { .mobile-only { display: none; } }
+
+  /* --- MODAL CSS --- */
+  .project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .project-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .modal-content {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+    background: var(--color-bg);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: var(--radius-md, 24px);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(40px) scale(0.98);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    opacity: 0;
+  }
+  .project-modal.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  .modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: var(--color-light-grey);
+    border: 1px solid rgba(0,0,0,0.05);
+    color: var(--color-text-main);
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  .modal-close:hover {
+    background: var(--color-primary, #e30613);
+    color: white;
+    border-color: var(--color-primary, #e30613);
+    transform: rotate(90deg);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: var(--color-bg); }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+  .modal-body {
+    overflow-y: auto;
+    padding: 4rem;
+    padding-top: 5rem;
+    overscroll-behavior: contain;
+  }
+  .modal-header .eyebrow {
+    color: var(--color-primary, #e30613);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .modal-header h2 {
+    font-size: 3.5rem;
+    color: var(--color-text-main);
+    margin: 0.5rem 0 1.5rem;
+    line-height: 1.1;
+  }
+  .title-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary, #e30613);
+  }
+  .modal-info {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+  }
+  .modal-story h3 {
+    margin-bottom: 1rem; 
+    color: var(--color-text-main);
+    font-size: 1.5rem;
+  }
+  .modal-story p {
+    line-height: 1.8; 
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+  
+  .modal-review {
+    background: var(--color-light-grey);
+    padding: 2.5rem;
+    border-radius: var(--radius-sm, 12px);
+    border-left: 4px solid var(--color-primary, #e30613);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .modal-review .quote-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 4rem;
+    color: rgba(0,0,0,0.03);
+    line-height: 1;
+    font-family: serif;
+  }
+  .modal-review p {
+    font-style: italic; 
+    color: var(--color-text-main); 
+    line-height: 1.6;
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  @media (max-width: 900px) {
+    .modal-info {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .modal-content {
+       width: 95vw;
+       height: 95vh;
+    }
+    .modal-body {
+       padding: 2rem;
+    }
+    .modal-header h2 { font-size: 2.5rem; }
+    .modal-gallery { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+  const initProjectModal = () => {
+    const links = document.querySelectorAll('.card-link');
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+    
+    const bd = document.getElementById('modal-backdrop');
+    const closeBtn = document.getElementById('modal-close');
+    
+    const mTitle = document.getElementById('modal-title');
+    const mCat = document.getElementById('modal-category');
+    const mText = document.getElementById('modal-text');
+    const mReview = document.getElementById('modal-review-text');
+    const mGallery = document.getElementById('modal-gallery');
+    const mReviewContainer = document.getElementById('modal-review-container');
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    if(closeBtn) closeBtn.addEventListener('click', closeModal);
+    if(bd) bd.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if(link.hasAttribute('data-title')) {
+          e.preventDefault();
+          
+          const title = link.getAttribute('data-title');
+          const cat = link.getAttribute('data-category');
+          const story = link.getAttribute('data-story');
+          const review = link.getAttribute('data-review');
+          const galleryRaw = link.getAttribute('data-gallery');
+          
+          if(mTitle) mTitle.textContent = title;
+          if(mCat) mCat.textContent = cat;
+          if(mText) mText.textContent = story;
+          
+          if(mReviewContainer && mReview) {
+            if(review && review.trim() !== '') {
+              mReview.textContent = `"${review}"`;
+              mReviewContainer.style.display = 'block';
+            } else {
+              mReviewContainer.style.display = 'none';
+            }
+          }
+          
+          if(mGallery) {
+            mGallery.innerHTML = '';
+            if(galleryRaw) {
+              const arr = galleryRaw.split(',');
+              arr.forEach(imgSrc => {
+                   if(imgSrc.trim() === '') return;
+                   const img = document.createElement('img');
+                   img.src = imgSrc;
+                   img.alt = title;
+                   img.loading = 'lazy';
+                   // Inline styles for fast rendering, or use classes
+                   img.style.width = '100%';
+                   img.style.aspectRatio = '16/9';
+                   img.style.objectFit = 'cover';
+                   img.style.borderRadius = '12px';
+                   img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+                   mGallery.appendChild(img);
+              });
+            }
+          }
+
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden'; 
+        }
+      });
+    });
+  };
+
+  // Run on first load
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectModal);
+  } else {
+    initProjectModal();
+  }
+</script>

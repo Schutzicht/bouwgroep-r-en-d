@@ -21,29 +21,30 @@ import Layout from '../../layouts/Layout.astro';
             Zo weten we zeker dat wat we bouwen, ook technisch klopt.
           </p>
           
-          <div class="services-list">
+          <div class="expertise-section">
             <h3>Onze Expertise</h3>
-            <ul>
-              <li>
-                <strong>Sanitair Installatie</strong>
+            <div class="expertise-grid">
+              <div class="expertise-card">
+                <h4>Sanitair Installatie</h4>
                 <p>Aansluiten van kranen, douches, baden en toiletten, inclusief leidingwerk.</p>
-              </li>
-              <li>
-                <strong>Vloerverwarming</strong>
+              </div>
+              <div class="expertise-card">
+                <h4>Vloerverwarming</h4>
                 <p>Infrezen en aansluiten van comfortabele vloerverwarming onder uw nieuwe tegelvloer.</p>
-              </li>
-              <li>
-                <strong>Waterbehandeling</strong>
+              </div>
+              <div class="expertise-card">
+                <h4>Waterbehandeling</h4>
                 <p>Installatie van waterontharders voor een kalkvrije badkamer en langere levensduur van uw sanitair.</p>
-              </li>
-              <li>
-                <strong>Ventilatie</strong>
+              </div>
+              <div class="expertise-card">
+                <h4>Ventilatie</h4>
                 <p>Mechanische ventilatiesystemen om vochtproblemen en schimmel te voorkomen.</p>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
 
-          <a href="/#contact" class="btn">Meer informatie</a>
+        <div class="cta-wrapper">
+          <a href="/offerte-aanvragen" class="btn">Meer informatie</a>
         </div>
         
         <div class="image-col">
@@ -144,5 +145,55 @@ import Layout from '../../layouts/Layout.astro';
   @media (max-width: 900px) {
     .split-content { grid-template-columns: 1fr; }
     .page-header { padding: 6rem 0 3rem; }
+  }
+  .expertise-section h3 {
+    margin: 2rem 0 1rem;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Force 2 columns */
+    gap: 1.5rem;
+  }
+
+  .expertise-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: transform 0.2s ease;
+  }
+  
+  .expertise-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    border-color: var(--color-primary);
+  }
+
+  .expertise-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .expertise-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 600px) {
+    .expertise-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cta-wrapper {
+    margin-top: 3rem;
   }
 </style>

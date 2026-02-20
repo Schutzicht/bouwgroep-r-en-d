@@ -5,51 +5,67 @@ interface Props {
 const { showButton = true } = Astro.props;
 ---
 
-<section id="about" class="section">
-  <div class="container">
+<section id="about" class="section premium-intro">
+  <div class="container relative-container">
+    
+    <!-- Architectonische 'Stride' Achtergrond Kaart -->
+    <div class="content-glass-card"></div>
+
     <div class="intro-grid">
       <div class="intro-text">
-        <h4 class="text-primary">Over R&D Bouwgroep</h4>
-        <h2>Waar Luxe en Comfort <br>Samenkomen</h2>
-        <p class="lead">
-          Uw specialist in badkamers, tegelwerk en zwembaden.
+        <h4 class="text-primary tracking-label">Waarom R&D Bouwgroep</h4>
+        <h2 class="title-elegant">Meesterlijk vakwerk voor uw exclusieve droomproject</h2>
+        <p class="lead-text">
+          Uw specialist in luxe badkamers, strak tegelwerk en hoogwaardige zwembaden.
         </p>
-        <p>
+        <p class="body-text">
           R&D Bouwgroep renoveert complete badkamers en verzorgt hoogwaardig tegelwerk voor vloeren en wanden. 
-          Daarnaast hebben wij ruime ervaring in installatiewerk en realiseren wij zelfs complete zwembaden. 
-          Ons grote team van specialisten werkt met oog voor detail aan uw perfecte resultaat.
+          Daarnaast hebben wij ruime ervaring in installatiewerk en realiseren wij design zwembaden. 
+          Ons grote team van specialisten werkt met oog voor het kleinste detail.
         </p>
-        <div class="features">
-          <div class="feature">
-            <span class="check">✓</span>
-            <span>Badkamer & Toilet Renovatie</span>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <span class="check-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+            </span>
+            <span>Luxe Badkamer & Toilet Renovatie</span>
           </div>
-          <div class="feature">
-            <span class="check">✓</span>
-            <span>Tegelwerk & Vloeren</span>
+          <div class="feature-item">
+            <span class="check-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+            </span>
+            <span>Exclusief Tegelwerk & Vloeren</span>
           </div>
-          <div class="feature">
-            <span class="check">✓</span>
-            <span>Zwembaden & Wellness</span>
-          </div>
-          <div class="feature">
-            <span class="check">✓</span>
-            <span>Ervaring in Installatiewerk</span>
+          <div class="feature-item">
+            <span class="check-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+            </span>
+            <span>Zwembaden & Wellness faciliteiten</span>
           </div>
         </div>
-        {showButton && <a href="/over-ons" class="btn" style="margin-top: 2rem;">Meer over ons</a>}
+
+        {showButton && (
+          <div class="action-footer">
+            <a href="/over-ons" class="btn-pill btn-pill-outline-dark">Lees ons verhaal &rarr;</a>
+          </div>
+        )}
       </div>
 
-      <div class="intro-images">
-        <div class="img-1">
+      <div class="intro-images-container">
+        <!-- Floating images in Stride Style -->
+        <div class="img-wrapper img-back">
           <img src="/RenD Persooneel/cinematic medewerker binnen aan het werk.jpeg" alt="R&D Vakman aan het werk" />
         </div>
-        <div class="img-2">
+        
+        <div class="img-wrapper img-front">
           <img src="/generated-projects/tiling-detail.png" alt="Marmer Detail" />
-          <div class="exp-box">
-            <span class="num">10+</span>
-            <span class="txt">Jaar<br>Ervaring</span>
-          </div>
+        </div>
+        
+        <!-- Premium glass floating badge -->
+        <div class="experience-badge">
+          <span class="badge-num">10+</span>
+          <span class="badge-txt">Jaar<br>Ervaring</span>
         </div>
       </div>
     </div>
@@ -57,121 +73,237 @@ const { showButton = true } = Astro.props;
 </section>
 
 <style>
+  .premium-intro {
+    background-color: #fcfcfc; /* Subtiele gebroken wit achtergrond */
+    padding: 8rem 0; /* Grote breathing room */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .relative-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* De grote glazen basis achter de hele content */
+  .content-glass-card {
+    position: absolute;
+    top: -2rem;
+    left: 2rem;
+    right: 4rem;
+    bottom: -2rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0,0,0,0.03);
+    border-radius: var(--radius-lg, 12px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.04);
+    z-index: 1;
+  }
+
   .intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
   }
 
-  h4 {
+  /* --- TYPOGRAFIE & TEKST --- */
+  .intro-text {
+    max-width: 540px;
+  }
+
+  .tracking-label {
     font-family: var(--font-body);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-bottom: 1rem;
+    color: var(--color-primary);
   }
 
-  h2 {
+  .title-elegant {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
-    color: var(--color-dark);
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
   }
 
-  .lead {
-    font-size: 1.25rem;
-    color: var(--color-dark);
-    font-weight: 600;
-    margin-bottom: 1rem;
+  .lead-text {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
   }
 
-  p {
-    color: var(--color-text-muted);
-    margin-bottom: 2rem;
+  .body-text {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
   }
 
-  .features {
+  /* --- LIJST & KNOPPEN --- */
+  .features-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    margin-bottom: 3rem;
   }
 
-  .feature {
+  .feature-item {
     display: flex;
     align-items: center;
     gap: 1rem;
     font-weight: 500;
-    color: var(--color-dark);
+    color: #1a1a1a;
+    font-size: 1rem;
   }
 
-  .check {
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: rgba(227, 6, 19, 0.1); /* Zachte rode ronde achtergrond */
+    border-radius: 50%;
     color: var(--color-primary);
-    font-weight: 800;
   }
 
-  .intro-images {
-    position: relative;
-    height: 600px;
+  .action-footer {
+    display: flex;
   }
 
-  .img-1 {
-    width: 70%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    z-index: 1;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  }
-
-  .img-2 {
-    width: 60%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    z-index: 2;
-    border: 8px solid white;
-    border-radius: var(--radius-sm);
-    overflow: visible; /* Allow box to stick out */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  }
-  
-  .img-2 img {
-    width: 100%;
-  }
-
-  .exp-box {
-    position: absolute;
-    bottom: 20px;
-    left: -40px;
-    background-color: var(--color-primary);
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(160, 10, 19, 0.3);
-  }
-
-  .num {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .txt {
-    font-size: 0.8rem;
+  .btn-pill-outline-dark {
+    display: inline-flex;
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.2);
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+  }
+  .btn-pill-outline-dark:hover {
+    background-color: rgba(0,0,0,0.05);
   }
 
-  @media (max-width: 900px) {
-    .intro-grid { grid-template-columns: 1fr; }
-    .intro-images { height: 400px; margin-top: 3rem; }
-    h4 {
-      display: none; /* Hide brand label on mobile as requested */
+  /* --- AFBEELDINGEN & ZWEVENDE ELEMENTEN --- */
+  .intro-images-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5; /* Meeschalend container in plaats van statische hoogte */
+  }
+
+  .img-wrapper {
+    position: absolute;
+    border-radius: var(--radius-md, 8px);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .img-wrapper:hover img {
+    transform: scale(1.03); /* Subtle premium zoom on hover */
+  }
+
+  /* Cinematic Portret - Grote op de achtergrond */
+  .img-back {
+    top: 0;
+    right: 0;
+    width: 85%;
+    aspect-ratio: 4/5; /* Voorkomt het buggen/in elkaar drukken van de afbeelding */
+    z-index: 1;
+  }
+
+  /* Detailkaart - Kleiner zwevend ervoor op links */
+  .img-front {
+    bottom: 5%;
+    left: -10%; /* Breekt responsief uit de container */
+    width: 55%;
+    aspect-ratio: 1/1; /* Perfecte blokvorm */
+    z-index: 2;
+    border: 8px solid #fcfcfc; /* Kader in de kleur van de section achtergrond */
+  }
+
+  /* Luxe glazen exp-badge */
+  .experience-badge {
+    position: absolute;
+    top: 15%;
+    left: -12%; /* Hangt asymmetrisch uit de layout */
+    background: rgba(255, 255, 255, 0.85); /* Wit frosted glass */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius-md, 8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    z-index: 3;
+    border: 1px solid rgba(255,255,255,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 3px solid var(--color-primary); /* Rood accent lijntje */
+  }
+
+  .badge-num {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #1a1a1a;
+  }
+
+  .badge-txt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-primary);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .intro-grid { 
+      grid-template-columns: 1fr; 
+      gap: 3rem;
+      padding: 0;
+    }
+    .content-glass-card {
+      left: 0; right: 0; top: 0; bottom: 0;
+    }
+    .intro-images-container { 
+      margin-top: 4rem; 
+      margin-bottom: 2rem;
+      max-width: 500px; /* Houd de meeschalende afbeelding mooi bij elkaar */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .img-front {
+      left: -5%;
+    }
+    .experience-badge {
+      left: 0;
+      top: 5%;
     }
   }
 </style>

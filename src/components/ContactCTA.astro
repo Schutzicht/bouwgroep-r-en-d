@@ -9,6 +9,7 @@
         <div class="direct-contact">
           <a href="tel:+31630301276" class="phone-link">
             <div class="icon">
+              <!-- ... existing ... -->
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
             <div class="details">
@@ -22,12 +23,16 @@
       <!-- Right side: Form -->
       <div class="cta-form-wrapper">
         <form class="quote-form">
+          <!-- ... fields ... -->
           <div class="form-row">
             <div class="form-group">
               <label>Naam</label>
               <input type="text" placeholder="Uw naam" required />
             </div>
           </div>
+          
+          <!-- ... other fields skipped for brevity in replace block if possible, but safer to include context ... -->
+          <!-- Actually, I will just target the button and the top of the file to remove watermark -->
           
           <div class="form-row">
             <div class="form-group">
@@ -83,8 +88,11 @@
             <textarea placeholder="Vertel kort over uw plannen..." rows="3"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-white btn-full">
-            Verstuur Offerte Aanvraag
+          <button type="submit" class="btn btn-white btn-logo-reveal">
+            <span class="btn-text">Verstuur Aanvraag</span>
+            <div class="btn-logo">
+              <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/RenD-hoofdlogo.png" alt="R&D" />
+            </div>
           </button>
         </form>
       </div>
@@ -100,7 +108,15 @@
     background-position: center;
     background-attachment: fixed;
     color: white;
-    padding: 8rem 0;
+    padding: 5rem 0; /* Reduced from 8rem for a cleaner, tighter section */
+    position: relative;
+  }
+
+  /* ... removed watermark styles ... */
+
+  .container.content {
+    position: relative;
+    z-index: 1;
   }
 
   .cta-layout {
@@ -112,8 +128,8 @@
 
   h2 {
     color: white;
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
+    font-size: 3rem; /* Slightly smaller to match compact feel */
+    margin-bottom: 1.5rem;
     line-height: 1.1;
   }
   
@@ -172,19 +188,19 @@
 
   /* Form Styling */
   .cta-form-wrapper {
-    background: rgba(255, 255, 255, 0.12); /* Slightly more opaque */
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    padding: 3.5rem; /* Slightly more breathing room */
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.25); /* Stronger border */
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+    padding: 2.5rem; /* Reduced from 3.5rem */
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.4);
   }
 
   .quote-form {
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
+    gap: 1.25rem; /* Reduced gap between form elements */
   }
 
   .form-group {
@@ -194,15 +210,12 @@
   }
 
   .form-group label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: white; /* Force white */
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    padding: 2rem;
-    border-radius: var(--radius-md);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    letter-spacing: 1px;
+    color: white;
+    padding-bottom: 0.25rem; /* Replaced the massive 2rem padding */
   }
 
   .form-group input, 
@@ -342,7 +355,67 @@
     transform: translateY(-2px);
   }
 
-  .btn-full { width: 100%; }
+  .btn-white {
+    background-color: white;
+    color: var(--color-primary);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .btn-text {
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .btn-logo {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%) translateX(50px); /* Start hidden to right */
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    height: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-logo img {
+    height: 100%;
+    width: auto;
+    filter: brightness(0); /* Black logo usually, but on white btn -> black or primary? */
+  }
+  
+  /* Make logo Primary red on hover */
+  .btn-white:hover .btn-logo img {
+     /* If the image is the R&D logo (usually red/black), we can keep original color 
+        OR filter it. Let's reset filter to show real logo color (Red) */
+     filter: none;
+  }
+
+  .btn-white:hover {
+    background-color: #f0f0f0;
+    color: var(--color-dark);
+  }
+
+  .btn-white:hover .btn-text {
+    transform: translateX(-20px); /* Move text left to make room */
+  }
+
+  .btn-white:hover .btn-logo {
+    transform: translateY(-50%) translateX(0); /* Slide in */
+    opacity: 1;
+  }
 
   @media (max-width: 1024px) {
     .cta-layout {

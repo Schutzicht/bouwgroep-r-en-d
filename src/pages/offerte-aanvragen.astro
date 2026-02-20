@@ -1,0 +1,697 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Offerte Aanvragen | R&D Bouwgroep";
+const description = "Vraag vrijblijvend een offerte aan voor uw luxe badkamer, wellness of tegelwerk. Ontvang binnen 2 werkdagen een reactie op maat.";
+---
+
+<Layout title={title} description={description}>
+  
+  <!-- Hero Section -->
+  <section class="quote-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Start Uw Project</span>
+        <h1>Realiseer uw <span class="text-primary">Droominterieur</span></h1>
+        <p class="lead">Van exclusief design tot perfecte realisatie. Vul het formulier in en ontvang een vrijblijvend voorstel op maat.</p>
+        
+        <div class="trust-badges">
+          <div class="badge">
+            <span class="check">✓</span> Binnen 2 werkdagen reactie
+          </div>
+          <div class="badge">
+            <span class="check">✓</span> Vrijblijvend adviesgesprek
+          </div>
+          <div class="badge">
+            <span class="check">✓</span> Volledige ontzorging
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg"></div>
+  </section>
+
+  <!-- Main Content Grid -->
+  <section class="quote-content section">
+    <div class="container grid-layout">
+      
+      <!-- Left Column: Process & Info -->
+      <div class="info-column">
+        
+        <!-- Process Steps -->
+        <div class="process-card">
+          <h3>Hoe werkt het?</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-text">
+                <strong>Aanvraag</strong>
+                <p>Vul het formulier in met uw wensen.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-text">
+                <strong>Intake</strong>
+                <p>We bespreken uw wensen telefonisch.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-text">
+                <strong>Advies & Ontwerp</strong>
+                <p>Bezoek onze showroom of locatiebezoek.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-text">
+                <strong>Realisatie</strong>
+                <p>Onze vakmensen gaan voor u aan de slag.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Mini -->
+        <div class="faq-card">
+          <h3>Veelgestelde Vragen</h3>
+          <details>
+            <summary>Is de offerte echt vrijblijvend?</summary>
+            <p>Ja, de eerste offerte en het kennismakingsgesprek zijn volledig vrijblijvend.</p>
+          </details>
+          <details>
+            <summary>Wat is de doorlooptijd?</summary>
+            <p>Dit hangt af van de omvang. Een badkamerrenovatie duurt gemiddeld 3-4 weken.</p>
+          </details>
+          <details>
+            <summary>Werken jullie met vaste prijzen?</summary>
+            <p>Ja, na inventarisatie ontvangt u een vaste prijs. Geen verrassingen achteraf.</p>
+          </details>
+        </div>
+
+      </div>
+
+      <!-- Right Column: The Form -->
+      <div class="form-column">
+        <div class="form-wrapper">
+          <h2>Uw Aanvraag</h2>
+          <form class="comprehensive-form">
+            
+            <!-- Contact Details -->
+            <div class="form-section">
+              <h4>Contactgegevens</h4>
+              <div class="form-row">
+                <div class="form-group half">
+                  <label>Voornaam</label>
+                  <input type="text" placeholder="Jan" required />
+                </div>
+                <div class="form-group half">
+                  <label>Achternaam</label>
+                  <input type="text" placeholder="Jansen" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group half">
+                  <label>Email</label>
+                  <input type="email" placeholder="jan@voorbeeld.nl" required />
+                </div>
+                <div class="form-group half">
+                  <label>Telefoon</label>
+                  <input type="tel" placeholder="06 12345678" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group half">
+                  <label>Postcode</label>
+                  <input type="text" placeholder="1234 AB" required />
+                </div>
+                <div class="form-group half">
+                  <label>Woonplaats</label>
+                  <input type="text" placeholder="Amsterdam" required />
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="form-section">
+              <h4>Projectdetails</h4>
+              
+              <div class="form-group">
+                <label>Type Project</label>
+                <div class="select-grid">
+                  <label class="select-card">
+                    <input type="radio" name="project_type" value="badkamer" checked />
+                    <span class="card-content">
+                      <span class="icon">🛁</span>
+                      <span class="label">Badkamer</span>
+                    </span>
+                  </label>
+                  <label class="select-card">
+                    <input type="radio" name="project_type" value="wellness" />
+                    <span class="card-content">
+                      <span class="icon">🧘</span>
+                      <span class="label">Wellness</span>
+                    </span>
+                  </label>
+                  <label class="select-card">
+                    <input type="radio" name="project_type" value="tegelwerk" />
+                    <span class="card-content">
+                      <span class="icon">🧱</span>
+                      <span class="label">Tegelwerk</span>
+                    </span>
+                  </label>
+                  <label class="select-card">
+                    <input type="radio" name="project_type" value="toilet" />
+                    <span class="card-content">
+                      <span class="icon">🚽</span>
+                      <span class="label">Toilet</span>
+                    </span>
+                  </label>
+                  <label class="select-card">
+                    <input type="radio" name="project_type" value="anders" id="project-anders" />
+                    <span class="card-content">
+                      <span class="icon">✨</span>
+                      <span class="label">Anders</span>
+                    </span>
+                  </label>
+                </div>
+                <!-- Dynamic Input for Project Type -->
+                <div class="conditional-input" id="project-other-input" style="display: none; margin-top: 1rem;">
+                  <input type="text" name="project_type_other" placeholder="Omschrijf uw project type..." />
+                </div>
+              </div>
+
+              <!-- Custom Selects Row -->
+              <div class="form-row">
+                <div class="form-group half">
+                  <label>Status</label>
+                  <div class="custom-select-wrapper">
+                    <select class="hidden-select">
+                      <option>Ik oriënteer me nog</option>
+                      <option>Ik heb al concrete plannen</option>
+                      <option>Klaar om te starten</option>
+                    </select>
+                    <div class="custom-select-trigger">
+                      <span>Ik oriënteer me nog</span>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <!-- Options populated by JS or simple fallback -->
+                  </div>
+                </div>
+                <div class="form-group half">
+                  <label>Gewenste Startdatum</label>
+                  <div class="custom-select-wrapper">
+                   <select class="hidden-select">
+                      <option>Zo snel mogelijk</option>
+                      <option>Binnen 3 maanden</option>
+                      <option>Over 3-6 maanden</option>
+                      <option>Geen haast</option>
+                    </select>
+                    <div class="custom-select-trigger">
+                      <span>Zo snel mogelijk</span>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Budget Indicatie</label>
+                <div class="range-selector">
+                   <!-- Visual Budget Selector instead of dropdown -->
+                   <div class="budget-options">
+                      <label class="budget-option">
+                        <input type="radio" name="budget" value="10-20k">
+                        <span>€10k - €20k</span>
+                      </label>
+                      <label class="budget-option">
+                        <input type="radio" name="budget" value="20-35k" checked>
+                        <span>€20k - €35k</span>
+                      </label>
+                      <label class="budget-option">
+                        <input type="radio" name="budget" value="35-50k">
+                        <span>€35k - €50k</span>
+                      </label>
+                      <label class="budget-option">
+                        <input type="radio" name="budget" value="50k+">
+                        <span>€50k+</span>
+                      </label>
+                      <label class="budget-option">
+                        <input type="radio" name="budget" value="anders" id="budget-anders">
+                        <span>Anders</span>
+                      </label>
+                   </div>
+                   <!-- Dynamic Input for Budget -->
+                   <div class="conditional-input" id="budget-other-input" style="display: none; margin-top: 1rem;">
+                     <input type="text" name="budget_other" placeholder="Wat is uw budget indicatie?" />
+                   </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Omschrijving</label>
+                <textarea rows="4" placeholder="Vertel ons meer over uw wensen, specifieke materialen of ideeën..."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg btn-logo-reveal">
+               <span class="btn-text">Vraag Offerte Aan</span>
+               <div class="btn-logo">
+                 <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/RenD-hoofdlogo.png" alt="R&D" />
+               </div>
+            </button>
+            <p class="form-footer">Wij respecteren uw privacy. Uw gegevens worden niet gedeeld.</p>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Page Layout */
+  .quote-hero {
+    position: relative;
+    padding: 180px 0 100px;
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/3.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: white; /* Force white over global styles */
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9); /* Slightly brighter */
+    margin-bottom: 2.5rem;
+  }
+
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .check { color: var(--color-primary); font-weight: bold; margin-right: 0.5rem; }
+
+  /* Grid Layout */
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    margin-top: -50px; /* Overlap hero */
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Info Column */
+  .info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .process-card, .faq-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  }
+
+  h3 { margin-bottom: 1.5rem; }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .step:last-child { margin-bottom: 0; }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-text strong { display: block; margin-bottom: 0.3rem; }
+  .step-text p { font-size: 0.9rem; color: #666; margin: 0; }
+
+  /* FAQ */
+  details {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+
+  details:last-child { border: none; }
+
+  summary {
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none; /* Hide default triangle */
+    position: relative;
+    padding-right: 20px;
+  }
+  
+  summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    color: var(--color-primary);
+  }
+
+  details[open] summary::after { content: '-'; }
+
+  details p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* Form Column */
+  .form-wrapper {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.02);
+  }
+
+  .form-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .form-section:last-of-type { border: none; }
+
+  h4 {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 2rem; /* Was 1.5rem */
+    margin-bottom: 2rem; /* Was 1.5rem */
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* Was 0.5rem */
+    width: 100%;
+  }
+  
+  .half { width: 50%; }
+
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  input, select, textarea {
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fdfdfd;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+    background: white;
+  }
+  
+  /* Custom Select Mockup */
+  .custom-select-wrapper {
+    position: relative;
+  }
+  
+  .hidden-select {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .custom-select-trigger {
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    background: #fdfdfd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .hidden-select:focus + .custom-select-trigger {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+    background: white;
+  }
+
+  /* Budget Buttons */
+  .budget-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .budget-option {
+    flex: 1;
+    min-width: 100px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .budget-option input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .budget-option span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    background: #fdfdfd;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    color: #555;
+  }
+
+  .budget-option input:checked + span {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(227, 6, 19, 0.3);
+  }
+
+  /* Reveal Button Styles (Copied & Adapted) */
+  .btn-logo-reveal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-text {
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .btn-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translate(0, 50px); /* Start hidden below */
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    height: 24px;
+    width: auto;
+  }
+  
+  .btn-logo img {
+    height: 100%;
+    width: auto;
+    filter: brightness(0) invert(1); /* Ensure white */
+  }
+
+  .btn-logo-reveal:hover .btn-text {
+    transform: translateY(-30px); /* Move text up */
+    opacity: 0;
+  }
+
+  .btn-logo-reveal:hover .btn-logo {
+    transform: translate(-50%, -50%); /* Center */
+    opacity: 1;
+  }
+
+  /* Select Grid for Projects */
+  .select-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Responsive */
+    gap: 1rem;
+  }
+
+  /* ... rest same ... */
+
+  .select-card {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .select-card input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+  }
+
+  .select-card input:checked + .card-content {
+    border-color: var(--color-primary);
+    background: rgba(227, 6, 19, 0.05);
+  }
+
+  .icon { font-size: 1.5rem; }
+
+  .btn-lg {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+    border-radius: var(--radius-btn);
+  }
+
+  .form-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .grid-layout {
+      grid-template-columns: 1fr;
+    }
+    .hero-content h1 { font-size: 2.5rem; }
+    .form-row { flex-direction: column; gap: 1rem; }
+    .half { width: 100%; }
+    .select-grid { grid-template-columns: 1fr 1fr; } 
+  }
+  @media (max-width: 600px) {
+    .select-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  // Simple Select Sync for the visual dummy triggers
+  document.querySelectorAll('.hidden-select').forEach(select => {
+    select.addEventListener('change', (e) => {
+      const target = e.target as HTMLSelectElement;
+      const trigger = target.nextElementSibling?.querySelector('span');
+      if (trigger) trigger.textContent = target.value;
+    });
+  });
+
+  // Handle "Anders" inputs
+  function setupConditionalInputs(radioName: string, inputId: string, valueTrigger: string = 'anders') {
+    const radios = document.querySelectorAll(`input[name="${radioName}"]`);
+    const inputContainer = document.getElementById(inputId);
+    const inputField = inputContainer?.querySelector('input');
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const target = e.target as HTMLInputElement;
+        if (target.value === valueTrigger) {
+          inputContainer.style.display = 'block';
+          inputField?.focus();
+        } else {
+          inputContainer.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  setupConditionalInputs('project_type', 'project-other-input');
+  setupConditionalInputs('budget', 'budget-other-input');
+</script>

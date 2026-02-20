@@ -1,210 +1,340 @@
 ---
 ---
 
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <!-- Using one of the extracted high-res real images -->
-    <!-- Fallback image from their site -->
-    <img src="/generated-projects/luxury-bathroom.png" alt="Luxe Badkamer" class="bg-img" />
-    <div class="overlay"></div>
+<section class="hero-interface" id="home">
+  <!-- Clean Video Background -->
+  <div class="video-layer">
+    <video autoplay muted loop playsinline class="video-element">
+      <source src="/generated-projects/grok-video-641827ee-8a33-4aaf-bef2-f05327d99977.mp4" type="video/mp4">
+    </video>
+    <!-- Soft, gradient-free darkening layer to ensure white text pops without feeling heavy -->
+    <div class="video-overlay"></div>
   </div>
 
   <div class="container hero-content">
-    <div class="text-wrapper">
-      <span class="label-badge">R&D Bouwgroep</span>
-      <h1>
-        Uw Partner in <br/>
-        <span class="text-primary">Sanitair & Tegels</span>
+    
+    <!-- Top Left: Hero Headline positioned high and spacious -->
+    <div class="headline-layer">
+      <h1 class="hero-title">
+        Exclusief <br />
+        tegelwerk en <br />
+        sanitair
       </h1>
-      <p>
-        Waar luxe en comfort samenkomen. Wij realiseren uw droombadkamer en wellnessruimte met oog voor detail en vakmanschap.
-      </p>
-      <div class="btn-group">
-        <a href="/projecten" class="btn">Bekijk Projecten</a>
-        <a href="#contact" class="btn btn-outline" style="border-color: white; color: white;">Contact Opnemen</a>
-      </div>
     </div>
-  </div>
-  
-  <div class="scroll-down">
-    <div class="line"></div>
-    <span>Scroll</span>
+    
+    <!-- Architectonische 'Stride' Layout: Overlappende lagen -->
+    <div class="stride-layout">
+      
+      <!-- Kaart 1: De Achterste Laag (Informatie & CTA) -->
+      <div class="stride-card card-content">
+        <h2 class="card-title text-dark">Luxe project realiseren?</h2>
+        <p class="card-text text-dark">Ontdek wat meesterlijk vakwerk voor uw wellness ruimte betekent. Van exclusief tegelwerk tot complete realisatie.</p>
+        <div class="card-actions">
+          <a href="/offerte-aanvragen" class="btn-pill btn-pill-primary">Offerte aanvragen &rarr;</a>
+          <a href="/#recent-werk" class="btn-pill btn-pill-outline">Bekijk projecten &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Kaart 2: De Voorste Laag (Diensten referentie met klein gestanst logo) -->
+      <div class="stride-card card-brand-overlay">
+        <!-- De mask laag voor het kleine logo in de hoek -->
+        <div class="card-brand-bg"></div>
+        <div class="card-inner brand-inner-content">
+          <h3 class="card-title text-dark" style="font-size: 1.3rem;">Onze diensten</h3>
+          <p class="card-text text-dark" style="font-size: 0.85rem; margin-bottom: 1.5rem;">Benieuwd waar we u mee kunnen helpen of wat onze expertises zijn?</p>
+          <a href="/diensten" class="btn-pill btn-pill-outline-dark" style="padding: 0.8rem 1.2rem; font-size: 0.85rem;">Bekijk diensten &rarr;</a>
+          <span class="sr-only">R&D Bouwgroep</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <style>
-  .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    color: white;
-    overflow: hidden;
+  :root {
+    --card-radius: 8px; /* Slightly squarer like dockwize reference */
+    --hero-primary: var(--color-primary, #e30613);
+    --brand-pad-y: 3rem;
+    --brand-pad-x: 2.5rem;
   }
 
-  .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .hero-interface {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Push content towards bottom */
+    padding-bottom: 2rem;
+    overflow: hidden;
+    background-color: #111;
+  }
+
+  /* -----------------------------------
+     BACKGROUND & OVERLAY
+     ----------------------------------- */
+  .video-layer {
+    position: absolute;
+    inset: 0;
     z-index: 1;
   }
-  
-  .bg-img {
+
+  .video-element {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: zoomIn 20s infinite alternate;
+    /* Softly drift so it feels alive but calm */
+    transform: scale(1.05);
+    animation: driftSlow 30s linear infinite alternate;
   }
 
-  .overlay {
+  @keyframes driftSlow {
+    0% { transform: scale(1.05) translate(0, 0); }
+    100% { transform: scale(1.05) translate(-1%, -1%); }
+  }
+
+  .video-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55); /* Slightly darker clean flat darkening */
   }
 
+  /* -----------------------------------
+     CONTENT LAYOUT (GRID)
+     ----------------------------------- */
   .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     width: 100%;
-  }
-
-  .text-wrapper {
-    max-width: 700px;
-  }
-
-  .label-badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(160, 10, 19, 0.2); /* Red tint */
-    border-left: 4px solid var(--color-primary);
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    backdrop-filter: blur(5px);
-    letter-spacing: 1px;
-    border-radius: 0 var(--radius-pill) var(--radius-pill) 0; /* Fully rounded edge */
-    font-size: 0.9rem;
-  }
-
-  h1 {
-    font-size: clamp(3rem, 5vw, 5rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-    color: white; /* Force white text */
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-    max-width: 550px;
-    color: white; /* Force white text */
-  }
-
-  .btn-group {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .scroll-down {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: 2rem;
+    gap: 4rem; /* Weer ruimte tussen kop en de interactieve vlakken */
+    padding-top: 180px; /* Space for fixed header */
   }
 
-  .scroll-down .line {
-    width: 2px;
-    height: 60px;
-    background-color: white;
+  /* -----------------------------------
+     HEADLINE
+     ----------------------------------- */
+  .headline-layer {
+    max-width: 900px;
+    margin-right: auto;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 500; /* Medium weight, modern, not bold/screaming */
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .text-primary {
+    color: var(--hero-primary);
+  }
+
+  @keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+
+  /* -----------------------------------
+     STRIDE LAYOUT (SPLIT LEFT/RIGHT CARDS)
+     ----------------------------------- */
+  .stride-layout {
     position: relative;
-    overflow: hidden;
-  }
-
-  .scroll-down .line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+    opacity: 0;
+    margin-bottom: 2rem;
+  }
+
+  .stride-card {
+    position: relative; /* was absolute */
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  }
+
+  /* De tekstkaart links onder */
+  .card-content {
+    background: rgba(245, 245, 245, 0.45); /* Gelijk frosted glass effect, 0.45 opacity */
+    padding: 2.25rem 3rem; /* Reduced vertical padding for sleeker height */
+    max-width: 580px;
+    z-index: 1;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+
+  .card-content:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+  }
+
+  /* Het logo rechts onder */
+  .card-brand-overlay {
+    background: transparent;
+    width: 320px;
+    height: 220px;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .card-brand-overlay:hover {
+    transform: translateY(-8px);
+  }
+
+  .card-brand-bg {
+    position: absolute;
+    inset: 0;
+    /* Create the semi-transparent white glass pane */
+    background: rgba(245, 245, 245, 0.45); /* Gelijk frosted glass effect, 0.45 opacity */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    /* border verwijdert zoals gevraagd */
+    border-radius: var(--card-radius);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    
+    /* Dual mask to punch the hole. */
+    -webkit-mask-image: url('/RD-logo-mask.png'), linear-gradient(#fff, #fff);
+    -webkit-mask-size: auto 24px, 100% 100%;
+    -webkit-mask-position: calc(100% - 1.5rem) calc(100% - 1.25rem), 0 0;
+    -webkit-mask-repeat: no-repeat, no-repeat;
+    -webkit-mask-composite: destination-out;
+    
+    mask-image: url('/RD-logo-mask.png'), linear-gradient(#fff, #fff);
+    mask-size: auto 24px, 100% 100%;
+    mask-position: calc(100% - 1.5rem) calc(100% - 1.25rem), 0 0;
+    mask-repeat: no-repeat, no-repeat;
+    mask-composite: exclude;
+  }
+  
+  .card-inner {
+    position: relative;
+    z-index: 2;
     height: 100%;
-    background-color: var(--color-primary);
-    animation: drop 2s infinite;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .brand-inner-content {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 3.5rem; /* Space for the logo at bottom right */
   }
 
-  .scroll-down span {
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
+  .text-dark { color: #1a1a1a; }
+
+  /* Typography inside cards */
+  .card-title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.25;
   }
 
-  @keyframes zoomIn {
-    to { transform: scale(1.1); }
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0; /* Minder witruimte onder tekst */
+    opacity: 0.8;
+    max-width: 400px;
   }
 
-  @keyframes drop {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+  .card-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
+  /* Keep the logo image functionally there for SEO but hidden visually */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
+  }
+
+
+  /* -----------------------------------
+     PILL BUTTONS
+     ----------------------------------- */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-family: var(--font-heading, sans-serif);
+    font-size: 0.75rem; /* Dockwize button text is small */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-pill-primary {
+    background-color: var(--hero-primary);
+    color: #ffffff;
+    border: 1px solid var(--hero-primary);
+  }
+  .btn-pill-primary:hover {
+    background-color: #c7000b;
+    transform: scale(1.02);
+  }
+
+  .btn-pill-outline {
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.2);
+    color: #1a1a1a;
+  }
+  .btn-pill-outline:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+
+  /* -----------------------------------
+     RESPONSIVE
+     ----------------------------------- */
   @media (max-width: 768px) {
-    .hero { 
-      min-height: 100vh;
+    .stride-layout {
+      height: auto;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* Changed from center to bring content up */
-      text-align: center;
-      padding: 2rem 1rem;
+      gap: 1rem;
     }
-    .hero-content { 
-      padding-top: 10rem; /* Stable offset for floating header */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    
+    .stride-card {
+      position: relative; /* Terug naar grid layout op mobiel */
+      width: 100%;
+      top: 0;
+      left: 0;
     }
-    .label-badge {
-      display: none; /* Hide brand label on mobile as requested */
-    }
-    .scroll-down {
-      bottom: 7rem; /* Moved even higher as per user request */
-    }
-    .text-wrapper {
+
+    .card-content {
+      padding: 2rem;
       max-width: 100%;
     }
-    h1 {
+
+    .card-brand-overlay {
+      order: -1; /* Zet logo mask bovenaan op mobiel */
+      height: 160px;
+      width: 100%;
+    }
+    
+    .hero-title {
       font-size: 2.75rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.1rem;
-      margin: 0 auto 2.5rem;
-    }
-    .btn-group { 
-      flex-direction: column; 
-      align-items: stretch;
-      width: 100%;
-    }
-    .btn {
-      width: 100%;
-    }
-    .overlay {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);
-    }
-    .label-badge {
-      margin-bottom: 1.5rem;
     }
   }
 </style>
