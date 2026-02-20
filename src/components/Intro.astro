@@ -306,4 +306,28 @@ const { showButton = true } = Astro.props;
       top: 5%;
     }
   }
+
+  @media (max-width: 768px) {
+    .premium-intro {
+      padding: 5rem 0; /* Minder witruimte op mobiel */
+    }
+    .title-elegant {
+      font-size: 2.2rem; /* Passende titelgrootte */
+    }
+    .intro-images-container {
+      max-width: 100%; /* Volledige breedte op kleine schermen */
+      margin-top: 2rem;
+    }
+    .img-front {
+      width: 65%; /* Iets groter relatief tot de back-img op kleine schermen */
+      left: 0;
+    }
+    .experience-badge {
+      padding: 1rem 1.5rem;
+      top: -5%;
+    }
+    .badge-num {
+      font-size: 2rem;
+    }
+  }
 </style>
