@@ -308,12 +308,15 @@
      ----------------------------------- */
   @media (max-width: 768px) {
     .hero-interface {
-      min-height: 100svh;
-      height: auto;
+      height: 100svh;
+      min-height: auto;
+      justify-content: center; /* Haal de boel weg van de onderkant (flex-end) naar het midden/boven */
+      padding-bottom: 0;
     }
 
     .hero-content {
-      padding-top: 120px;
+      padding-top: 80px; /* Minder padding boven = inhoud start hoger */
+      gap: 2rem; /* Minder gat tussen de titel en kaarten op mobiel */
     }
 
     .stride-layout {
@@ -337,8 +340,8 @@
     }
 
     .card-brand-overlay {
-      order: -1; /* Zet logo mask bovenaan op mobiel */
-      height: 160px;
+      order: -1; 
+      height: 100px; /* Iets minder lomp stuk glas, bespaart ruimte op y-as */
       width: 100%;
     }
     

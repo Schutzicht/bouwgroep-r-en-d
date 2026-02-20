@@ -43,9 +43,6 @@ const services = [
           <div class="liquid-overlay"></div>
           
           <div class="liquid-content">
-            <div class="content-top">
-               <div class="brand-accent-dot"></div>
-            </div>
             <div class="content-bottom">
               <h3>{service.title}</h3>
               <p class="liquid-desc">{service.description}</p>
@@ -137,7 +134,7 @@ const services = [
     border-radius: 24px; /* Extreem zachte, vloeibare hoeken */
     overflow: hidden;
     text-decoration: none;
-    min-height: 500px; /* Hoge elegante kaarten */
+    min-height: 420px; /* Iets lagere kaarten voor betere desktop verhoudingen */
     /* De "Liquid" border: semi-transparant wit/grijs dat licht opvangt */
     border: 1px solid rgba(255, 255, 255, 0.08); 
     box-shadow: 
@@ -250,16 +247,8 @@ const services = [
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end; /* Push the content-bottom to the bottom */
     padding: 3rem 2.5rem;
-  }
-
-  .brand-accent-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-primary); /* Rode dot linksboven voor balans */
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--color-primary);
   }
 
   .content-bottom {
