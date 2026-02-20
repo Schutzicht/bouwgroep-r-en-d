@@ -334,14 +334,19 @@ const projects = [
     }
     
     .card-img {
-      aspect-ratio: 16/9;
+      aspect-ratio: 4/5; /* Portret stand voor mobiel zodat je er lekker doorheen kan swipen */
       height: auto;
     }
 
     .category-label {
-      top: 0 !important; /* Terug naar overlay on mobile */
+      position: absolute !important;
+      top: 1rem !important; 
+      left: 1rem !important;
       bottom: auto !important;
-      padding: 0.4rem 1rem;
+      width: auto !important; /* Geen volle breedte meer, maar een los labeltje */
+      border-radius: 4px !important;
+      padding: 0.4rem 0.8rem !important;
+      font-size: 0.65rem !important;
     }
   }
 
