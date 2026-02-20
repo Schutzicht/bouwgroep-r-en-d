@@ -82,10 +82,6 @@ const projects = [
                     </div>
                     <img src={project.image} alt={project.title} loading="lazy" />
                   </div>
-                  
-                  <div class="card-content mobile-only">
-                    <h3>{project.title}</h3>
-                  </div>
                 </div>
               </a>
             </div>
@@ -313,9 +309,28 @@ const projects = [
     .section {
       padding: 3rem 0;
     }
+    
+    .carousel-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 2rem;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .carousel-container::-webkit-scrollbar { 
+      display: none; 
+    }
+
+    .carousel-track {
+      animation: none;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
 
     .project-card-wrapper {
       width: 85vw !important; 
+      flex: 0 0 auto;
     }
     
     .card-img {
@@ -328,13 +343,7 @@ const projects = [
       bottom: auto !important;
       padding: 0.4rem 1rem;
     }
-    
-    .mobile-only {
-      margin-top: 0.5rem; color: var(--color-text-main); display: block;
-    }
   }
-
-  @media (min-width: 600px) { .mobile-only { display: none; } }
 
   /* --- MODAL CSS --- */
   .project-modal {
@@ -579,6 +588,29 @@ const projects = [
         }
       });
     });
+
+    // Mobile specific: JS driven auto-scroll that allows manual swipe
+    const trackContainer = document.querySelector('.carousel-container');
+    if (trackContainer && window.innerWidth < 600) {
+      let isTouching = false;
+      
+      trackContainer.addEventListener('touchstart', () => isTouching = true, {passive: true});
+      trackContainer.addEventListener('touchend', () => {
+        setTimeout(() => { isTouching = false; }, 1500); // Swipe cooldown
+      }, {passive: true});
+
+      const autoScroll = () => {
+        if (!isTouching) {
+          trackContainer.scrollLeft += 1; // Snelle, subtiele sweep
+          // Infinite loop reset als we aan 't eind zijn
+          if (trackContainer.scrollLeft >= trackContainer.scrollWidth - trackContainer.clientWidth - 5) {
+            trackContainer.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(autoScroll);
+      };
+      requestAnimationFrame(autoScroll);
+    }
   };
 
   // Run on first load
