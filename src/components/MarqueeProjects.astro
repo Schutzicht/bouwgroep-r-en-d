@@ -129,7 +129,54 @@ const projects = [
   </div>
 </section>
 
-<!-- No JS needed for CSS marquee -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.carousel-container');
+    containers.forEach(container => {
+      const track = container.querySelector('.carousel-track');
+      if (!track) return;
+      
+      let isInteracting = false;
+      let scrollSpeed = 0.8; 
+      let timeoutId;
+
+      const setInteracting = () => {
+        isInteracting = true;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => { isInteracting = false; }, 1500);
+      };
+
+      container.addEventListener('touchstart', setInteracting, {passive: true});
+      container.addEventListener('scroll', setInteracting, {passive: true});
+      
+      function step() {
+        if (!track) return requestAnimationFrame(step);
+        
+        const style = window.getComputedStyle(track);
+        // On mobile, CSS animation is "none", so we handle it with JS
+        if (style.animationName === "none" || style.animationDuration === "0s") {
+          if (!isInteracting) {
+            container.scrollLeft += scrollSpeed;
+            
+            // The array is duplicated 4 times. 1/4th is the reset loop point.
+            const cards = track.children;
+            const quarterIndex = Math.floor(cards.length / 4);
+            
+            if(quarterIndex > 0 && cards[quarterIndex]) {
+              const resetPoint = cards[quarterIndex].offsetLeft;
+              // Reset when we've scrolled exactly one set
+              if (container.scrollLeft >= resetPoint - 2) {
+                container.scrollLeft -= resetPoint;
+              }
+            }
+          }
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  });
+</script>
 
 <style>
   .section {
@@ -317,7 +364,6 @@ const projects = [
       margin-bottom: 3rem; /* Voorkom dat de slider-items the knop eronder overlappen */
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory; /* Natuurlijk snappen voor een luxer gevoel */
     }
     
     .carousel-container::-webkit-scrollbar { 
@@ -333,7 +379,6 @@ const projects = [
     .project-card-wrapper {
       width: 70vw !important;  /* Iets kleinere items zodat er meer tegelijk in beeld is */
       flex: 0 0 auto;
-      scroll-snap-align: center;
     }
     
     .card-img {

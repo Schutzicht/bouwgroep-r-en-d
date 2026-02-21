@@ -238,7 +238,6 @@ const reviews = [
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      scroll-snap-type: x mandatory;
       
       /* Reset harde negatieve margins */
       margin-left: 0;
@@ -259,7 +258,6 @@ const reviews = [
       width: 85vw !important; /* The card moet kleiner worden the passen the smalle schermpjes */
       padding: 2rem;
       flex-shrink: 0;
-      scroll-snap-align: center;
       border-left: 3px solid var(--color-primary);
     }
     
@@ -274,3 +272,52 @@ const reviews = [
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.marquee-container');
+    containers.forEach(container => {
+      const track = container.querySelector('.marquee-track');
+      if (!track) return;
+      
+      let isInteracting = false;
+      let scrollSpeed = 0.5; // pixel per frame
+      let timeoutId;
+
+      const setInteracting = () => {
+        isInteracting = true;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => { isInteracting = false; }, 1200);
+      };
+
+      container.addEventListener('touchstart', setInteracting, {passive: true});
+      container.addEventListener('scroll', setInteracting, {passive: true});
+      container.addEventListener('mouseenter', setInteracting);
+      
+      function step() {
+        if (!track) return requestAnimationFrame(step);
+        
+        const style = window.getComputedStyle(track);
+        // Execute JS scroll ONLY if CSS animation is fundamentally disabled (meaning we are on mobile)
+        if (style.animationName === "none" || style.animationDuration === "0s") {
+          if (!isInteracting) {
+            container.scrollLeft += scrollSpeed;
+            
+            const cards = track.children;
+            const halfIndex = Math.floor(cards.length / 2);
+            if(halfIndex > 0 && cards[halfIndex]) {
+              const resetPoint = cards[halfIndex].offsetLeft;
+              // Add a tiny buffer so it doesn't stutter on exact pixel match
+              if (container.scrollLeft >= resetPoint - 1) {
+                 // Reset seamless loop
+                container.scrollLeft -= resetPoint; 
+              }
+            }
+          }
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  });
+</script>
