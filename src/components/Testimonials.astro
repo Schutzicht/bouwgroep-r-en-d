@@ -131,7 +131,7 @@ const reviews = [
   }
   
   /* Ensure the animation runs smoothly */
-  .marquee-track:hover {
+  .marquee-track:hover, .marquee-track:active {
     animation-play-state: paused;
   }
 
@@ -215,5 +215,62 @@ const reviews = [
     color: #888;
     text-transform: uppercase;
     letter-spacing: 1px;
+  }
+
+  /* Responsive Slider Control */
+  @media (max-width: 768px) {
+    .testimonials-section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+    }
+
+    .marquee-container {
+      margin-top: 2rem;
+      padding: 1rem 0;
+      /* Uitschakelen van the fading hoekrandjes (mask) omdat dit scrollbar en randen saboteert */
+      mask-image: none;
+      -webkit-mask-image: none;
+      
+      /* Activeer the swipe modus */
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+      
+      /* Reset harde negatieve margins */
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .marquee-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .marquee-track {
+      animation: none !important; /* Stop the auto-movement */
+      gap: 1.5rem;
+      padding: 0 1rem; /* Marges geven links/rechts een rand */
+    }
+
+    .review-card {
+      width: 85vw !important; /* The card moet kleiner worden the passen the smalle schermpjes */
+      padding: 2rem;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      border-left: 3px solid var(--color-primary);
+    }
+    
+    .quote-icon {
+      font-size: 3rem;
+      right: 1.5rem;
+      top: 0.5rem;
+    }
+    
+    .review-text {
+      font-size: 0.95rem;
+    }
   }
 </style>

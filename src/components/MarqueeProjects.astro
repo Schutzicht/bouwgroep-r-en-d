@@ -312,10 +312,12 @@ const projects = [
     
     .carousel-container {
       overflow-x: auto;
-      overflow-y: hidden;
-      padding-bottom: 2rem;
+      overflow-y: visible; /* Voorkom dat de schaduw en onderkant worden afgesneden! */
+      padding-bottom: 1rem;
+      margin-bottom: 3rem; /* Voorkom dat de slider-items the knop eronder overlappen */
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory; /* Natuurlijk snappen voor een luxer gevoel */
     }
     
     .carousel-container::-webkit-scrollbar { 
@@ -329,8 +331,9 @@ const projects = [
     }
 
     .project-card-wrapper {
-      width: 85vw !important; 
+      width: 70vw !important;  /* Iets kleinere items zodat er meer tegelijk in beeld is */
       flex: 0 0 auto;
+      scroll-snap-align: center;
     }
     
     .card-img {
