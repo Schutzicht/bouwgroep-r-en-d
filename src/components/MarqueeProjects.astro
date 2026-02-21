@@ -364,9 +364,9 @@ const projects = [
     
     .carousel-container {
       overflow-x: auto;
-      overflow-y: visible; /* Voorkom dat de schaduw en onderkant worden afgesneden! */
-      padding-bottom: 1rem;
-      margin-bottom: 3rem; /* Voorkom dat de slider-items the knop eronder overlappen */
+      overflow-y: hidden; /* Verticaal scrollen uitschakelen (eis van gebruiker) */
+      padding-bottom: 2rem; /* The padding-bottom the de schaduw-clipping the heffen */
+      margin-bottom: 1rem;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
@@ -384,6 +384,7 @@ const projects = [
     .project-card-wrapper {
       width: 70vw !important;  /* Iets kleinere items zodat er meer tegelijk in beeld is */
       flex: 0 0 auto;
+      margin-bottom: 20px; /* Ruimte voor the the dropshadow zodat overflow-y: hidden de schaduw the pakt */
     }
     
     .card-img {
