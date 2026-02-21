@@ -335,14 +335,29 @@
     }
 
     .card-content {
-      padding: 2rem;
+      padding: 2.25rem 2rem;
       max-width: 100%;
+      
+      /* Cutout logo alignment in top right on mobile */
+      -webkit-mask-image: url('/RD-logo-mask.png'), linear-gradient(#fff, #fff);
+      -webkit-mask-size: auto 26px, 100% 100%;
+      -webkit-mask-position: calc(100% - 1.5rem) 1.5rem, 0 0;
+      -webkit-mask-repeat: no-repeat, no-repeat;
+      -webkit-mask-composite: destination-out;
+      
+      mask-image: url('/RD-logo-mask.png'), linear-gradient(#fff, #fff);
+      mask-size: auto 26px, 100% 100%;
+      mask-position: calc(100% - 1.5rem) 1.5rem, 0 0;
+      mask-repeat: no-repeat, no-repeat;
+      mask-composite: exclude;
+    }
+    
+    .card-content .card-title {
+      padding-right: 40px; /* Zorg dat tekst niet door de cutout heen valt */
     }
 
     .card-brand-overlay {
-      order: -1; 
-      height: 100px; /* Iets minder lomp stuk glas, bespaart ruimte op y-as */
-      width: 100%;
+      display: none !important; /* Deze is nu overbodig en mag weg op mobiel */
     }
     
     .hero-title {
