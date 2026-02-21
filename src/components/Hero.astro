@@ -310,13 +310,19 @@
     .hero-interface {
       height: 100svh;
       min-height: auto;
-      justify-content: center; /* Haal de boel weg van de onderkant (flex-end) naar het midden/boven */
-      padding-bottom: 0;
+      justify-content: flex-start; /* Laat de flexbox auto margins het werk doen */
+      padding-bottom: 2rem;
     }
 
     .hero-content {
-      padding-top: 130px; /* Titel zakt een stukje verder naar beneden t.o.v. header */
-      gap: 12rem; /* Nog iets meer ruimte tussen de titel en het onderste vlak */
+      padding-top: 100px; /* Vaste ruimte voor de header */
+      gap: 0;
+      height: 100%; /* Vul de hele 100svh op */
+    }
+
+    .headline-layer {
+      margin-top: auto;
+      margin-bottom: auto; /* Verticaal exact gecentreerd tussen header en het witte vlak! */
     }
 
     .stride-layout {
