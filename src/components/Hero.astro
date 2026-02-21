@@ -310,8 +310,8 @@
     .hero-interface {
       height: 100svh;
       min-height: auto;
-      justify-content: flex-start; /* Laat de flexbox auto margins het werk doen */
-      padding-bottom: 2rem;
+      justify-content: flex-start;
+      padding-bottom: 0; /* Zorg dat de kaart de onderkant 'raakt' */
     }
 
     .hero-content {
@@ -322,7 +322,7 @@
 
     .headline-layer {
       margin-top: auto;
-      margin-bottom: auto; /* Verticaal exact gecentreerd tussen header en het witte vlak! */
+      margin-bottom: auto; /* Verticaal exact gecentreerd in de resterende lege bovenruimte */
     }
 
     .stride-layout {
@@ -331,6 +331,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      margin-top: auto; /* PUSH DE KAART HELEMAAL NAAR DE ONDERKANT */
     }
     
     .stride-card {
