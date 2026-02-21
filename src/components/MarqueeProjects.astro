@@ -268,13 +268,15 @@ const projects = [
   }
 
   /* FOUR DISTINCT CARD MODES (Audio logic) */
-  .card-mod-0 { z-index: 10; width: 38vw; max-width: 560px; transform: translateY(80px); }
-  .card-mod-1 { z-index: 40; width: 46vw; max-width: 680px; transform: translateY(0px); }
-  .card-mod-2 { z-index: 5; width: 32vw; max-width: 480px; transform: translateY(80px); }
-  .card-mod-3 { z-index: 30; width: 42vw; max-width: 620px; transform: translateY(15px); }
+  @media (min-width: 769px) {
+    .card-mod-0 { z-index: 10; width: 38vw; max-width: 560px; transform: translateY(80px); }
+    .card-mod-1 { z-index: 40; width: 46vw; max-width: 680px; transform: translateY(0px); }
+    .card-mod-2 { z-index: 5; width: 32vw; max-width: 480px; transform: translateY(80px); }
+    .card-mod-3 { z-index: 30; width: 42vw; max-width: 620px; transform: translateY(15px); }
+  }
 
   /* OVERLAP AND DESKTOP TRANSFORMS */
-  @media (min-width: 600px) { 
+  @media (min-width: 769px) { 
     .project-card-wrapper + .project-card-wrapper {
       margin-left: -32px;
     }
@@ -352,12 +354,12 @@ const projects = [
   }
 
   /* Tablet: Reduced overlap */
-  @media (min-width: 600px) and (max-width: 899px) {
+  @media (min-width: 769px) and (max-width: 899px) {
     .carousel-track { animation-duration: 60s; }
   }
 
   /* Mobile: Single Card View, Reset Everything */
-  @media (max-width: 599px) {
+  @media (max-width: 768px) {
     .section {
       padding: 3rem 0;
     }
@@ -648,28 +650,7 @@ const projects = [
       });
     });
 
-    // Mobile specific: JS driven auto-scroll that allows manual swipe
-    const trackContainer = document.querySelector('.carousel-container');
-    if (trackContainer && window.innerWidth < 600) {
-      let isTouching = false;
-      
-      trackContainer.addEventListener('touchstart', () => isTouching = true, {passive: true});
-      trackContainer.addEventListener('touchend', () => {
-        setTimeout(() => { isTouching = false; }, 1500); // Swipe cooldown
-      }, {passive: true});
-
-      const autoScroll = () => {
-        if (!isTouching) {
-          trackContainer.scrollLeft += 1; // Snelle, subtiele sweep
-          // Infinite loop reset als we aan 't eind zijn
-          if (trackContainer.scrollLeft >= trackContainer.scrollWidth - trackContainer.clientWidth - 5) {
-            trackContainer.scrollLeft = 0;
-          }
-        }
-        requestAnimationFrame(autoScroll);
-      };
-      requestAnimationFrame(autoScroll);
-    }
+    // JS driven auto scroll is purely handled by the main script block at the top now to prevent conflicts.
   };
 
   // Run on first load
