@@ -299,8 +299,11 @@ const reviews = [
         if (!track) return requestAnimationFrame(step);
         
         const style = window.getComputedStyle(track);
+        const animName = style.animationName || style.getPropertyValue('animation-name');
+        const animDur = style.animationDuration || style.getPropertyValue('animation-duration');
+        
         // Execute JS scroll ONLY if CSS animation is fundamentally disabled (meaning we are on mobile)
-        if (style.animationName === "none" || style.animationDuration === "0s") {
+        if (!animName || animName === "none" || parseFloat(animDur) === 0) {
           if (!isInteracting) {
             container.scrollLeft += scrollSpeed;
             

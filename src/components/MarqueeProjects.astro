@@ -155,8 +155,11 @@ const projects = [
         if (!track) return requestAnimationFrame(step);
         
         const style = window.getComputedStyle(track);
+        const animName = style.animationName || style.getPropertyValue('animation-name');
+        const animDur = style.animationDuration || style.getPropertyValue('animation-duration');
+        
         // On mobile, CSS animation is "none", so we handle it with JS
-        if (style.animationName === "none" || style.animationDuration === "0s") {
+        if (!animName || animName === "none" || parseFloat(animDur) === 0) {
           if (!isInteracting) {
             container.scrollLeft += scrollSpeed;
             
