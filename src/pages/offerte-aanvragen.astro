@@ -651,8 +651,27 @@ const description = "Vraag vrijblijvend een offerte aan voor uw luxe badkamer, w
 
   @media (max-width: 1024px) {
     .grid-layout {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
+    
+    .info-column {
+      display: contents; /* Strip the wrapper behavior on mobile to freely order its children */
+    }
+    
+    .process-card {
+      order: 1; /* First element below hero */
+    }
+    
+    .form-column {
+      order: 2; /* Form comes directly after the process explanation */
+    }
+    
+    .faq-card {
+      order: 3; /* Wait with the FAQ at the very bottom */
+    }
+
     .hero-content h1 { font-size: 2.5rem; }
     .form-row { flex-direction: column; gap: 1rem; }
     .half { width: 100%; }
