@@ -287,11 +287,12 @@ const reviews = [
       const setInteracting = () => {
         isInteracting = true;
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => { isInteracting = false; }, 1200);
+        timeoutId = setTimeout(() => { isInteracting = false; }, 2000);
       };
 
       container.addEventListener('touchstart', setInteracting, {passive: true});
-      container.addEventListener('scroll', setInteracting, {passive: true});
+      container.addEventListener('touchmove', setInteracting, {passive: true});
+      container.addEventListener('wheel', setInteracting, {passive: true});
       container.addEventListener('mouseenter', setInteracting);
       
       function step() {
