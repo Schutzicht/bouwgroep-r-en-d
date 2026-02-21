@@ -56,8 +56,8 @@
       </div>
     </div>
     
-    <div class="text-center" style="margin-top: 5rem;">
-      <a href="/projecten" class="btn-pill btn-pill-outline">Bekijk gerealiseerde projecten &rarr;</a>
+    <div class="text-center btn-wrapper">
+      <a href="/#recent-werk" class="btn-pill btn-pill-outline">Bekijk gerealiseerde projecten &rarr;</a>
     </div>
   </div>
 </section>
@@ -93,6 +93,10 @@
     margin-bottom: 3.5rem;
     color: #1a1a1a; /* Terug naar donker */
     letter-spacing: -0.02em;
+  }
+  
+  .btn-wrapper {
+    margin-top: 5rem;
   }
 
   /* Grid Layout */
@@ -274,7 +278,10 @@
 
   @media (max-width: 640px) {
     .tile-feature-section {
-      padding: 5rem 0;
+      padding: 3rem 0; /* Significant minder witruimte rondom section op mobiel */
+    }
+    .btn-wrapper {
+      margin-top: 2rem; /* Minder witruimte direct boven de knop op mobiel */
     }
     .section-title.title-elegant {
       font-size: 2.2rem;
