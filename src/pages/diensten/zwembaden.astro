@@ -42,7 +42,7 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         
         <div class="image-col">
-          <img src="https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/Banner-foto-2.jpg" alt="Luxe Binnenzwembad" class="main-img" />
+          <img src="/images/zwembaden-wellness-hero.jpg" alt="Luxe Binnenzwembad R&D Bouwgroep" class="main-img" />
           <div class="quote-box">
              "Wij maken geen zwembad, wij creëren een beleving."
           </div>
@@ -107,13 +107,128 @@ import Layout from '../../layouts/Layout.astro';
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    position: sticky;
+    top: 120px;
   }
 
-  .main-img {
-    height: 100%;
-    object-fit: cover;
+  /* Slider Styling */
+  .slider-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
     border-radius: var(--radius-sm);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .before {
+    width: 50%;
+    border-right: 2px solid white;
+    box-shadow: 10px 0 15px -10px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+
+  .after {
+    z-index: 1;
+  }
+
+  /* Force image to take full container width even if parent is clipped */
+  .before img {
+    width: calc(100% * (100/50)); /* This will be updated via JS */
+    max-width: none;
+  }
+
+  .slider-input {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    margin: 0;
+    z-index: 10;
+    cursor: ew-resize;
+  }
+
+  .slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+  }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+    background: white;
+    z-index: 5;
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+
+  .handle-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    color: var(--color-primary);
+    gap: 2px;
+  }
+
+  .handle-button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .labels {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .label-before, .label-after {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(4px);
   }
 
   .quote-box {
@@ -133,3 +248,31 @@ import Layout from '../../layouts/Layout.astro';
     .features-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  const slider = document.getElementById('slider-range');
+  const beforeImg = document.getElementById('before-img');
+  const beforeImgTag = beforeImg?.querySelector('img');
+  const handle = document.querySelector('.slider-handle');
+
+  if (slider && beforeImg && handle && beforeImgTag) {
+    slider.addEventListener('input', (e) => {
+      const value = e.target.value;
+      beforeImg.style.width = `${value}%`;
+      handle.style.left = `${value}%`;
+      
+      // Keep the before image properly scaled
+      beforeImgTag.style.width = `calc(100% * (100 / ${value}))`;
+      // Handle the 0% edge case
+      if (value === '0') {
+        beforeImgTag.style.width = '10000%'; 
+      }
+    });
+
+    // Initial sync
+    const initialValue = slider.value;
+    beforeImg.style.width = `${initialValue}%`;
+    handle.style.left = `${initialValue}%`;
+    beforeImgTag.style.width = `calc(100% * (100 / ${initialValue}))`;
+  }
+</script>
