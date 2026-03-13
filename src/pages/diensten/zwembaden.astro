@@ -158,20 +158,12 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   .before {
-    width: 50%;
-    border-right: 2px solid white;
-    box-shadow: 10px 0 15px -10px rgba(0,0,0,0.2);
+    clip-path: inset(0 50% 0 0);
     z-index: 2;
   }
 
   .after {
     z-index: 1;
-  }
-
-  /* Force image to take full container width even if parent is clipped */
-  .before img {
-    width: calc(100% * (100/50)); /* This will be updated via JS */
-    max-width: none;
   }
 
   .slider-input {
@@ -276,24 +268,16 @@ import Layout from '../../layouts/Layout.astro';
   const beforeImgTag = beforeImg?.querySelector('img');
   const handle = document.querySelector('.slider-handle');
 
-  if (slider && beforeImg && handle && beforeImgTag) {
+  if (slider && beforeImg && handle) {
     slider.addEventListener('input', (e) => {
       const value = e.target.value;
-      beforeImg.style.width = `${value}%`;
+      beforeImg.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
       handle.style.left = `${value}%`;
-      
-      // Keep the before image properly scaled
-      beforeImgTag.style.width = `calc(100% * (100 / ${value}))`;
-      // Handle the 0% edge case
-      if (value === '0') {
-        beforeImgTag.style.width = '10000%'; 
-      }
     });
 
     // Initial sync
     const initialValue = slider.value;
-    beforeImg.style.width = `${initialValue}%`;
+    beforeImg.style.clipPath = `inset(0 ${100 - initialValue}% 0 0)`;
     handle.style.left = `${initialValue}%`;
-    beforeImgTag.style.width = `calc(100% * (100 / ${initialValue}))`;
   }
 </script>
