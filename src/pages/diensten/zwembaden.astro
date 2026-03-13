@@ -42,7 +42,28 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         
         <div class="image-col">
-          <img src="/images/zwembaden-wellness-hero.jpg" alt="Luxe Binnenzwembad R&D Bouwgroep" class="main-img" />
+          <!-- Before/After Slider Container -->
+          <div class="slider-container">
+            <div class="img-wrapper after">
+              <img src="/images/wellness/after.png" alt="Na: Luxe Binnenzwembad afgewerkt" />
+            </div>
+            <div class="img-wrapper before" id="before-img">
+              <img src="/images/wellness/before.png" alt="Voor: Zwembad in aanbouw" />
+            </div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" id="slider-range" />
+            <div class="slider-handle">
+              <div class="handle-line"></div>
+              <div class="handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </div>
+            </div>
+            <div class="labels">
+              <span class="label-before">Voor</span>
+              <span class="label-after">Na</span>
+            </div>
+          </div>
+
           <div class="quote-box">
              "Wij maken geen zwembad, wij creëren een beleving."
           </div>
