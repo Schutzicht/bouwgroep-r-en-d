@@ -7,7 +7,7 @@
       <!-- Image Layer (Background Stride) -->
       <div class="image-col stride-image-wrapper">
         <img 
-          src="/badkuip-hero.png" 
+          src="/badkuip-transparant.png" 
           alt="Luxe Vrijstaand Bad" 
           class="bathtub-image premium-image"
         />
@@ -29,7 +29,6 @@
 <style>
   .premium-stride-section {
     padding: 8rem 0;
-    background-color: #f7f7f6; /* Lichte premium brand achtergrond */
     position: relative;
     overflow: hidden;
   }
@@ -56,10 +55,10 @@
     width: 120%; /* Bres eruit */
     margin-left: -10%;
     border-radius: var(--radius-lg, 12px);
-    overflow: hidden; /* Houdt shadow en clip netjes */
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
     perspective: 1000px; /* Belangrijk voor 3D rotate effect */
     will-change: transform;
+    /* Use drop-shadow instead of box-shadow for transparent PNGs */
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
   }
 
   .premium-image {
