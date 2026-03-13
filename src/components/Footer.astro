@@ -71,14 +71,16 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Col 4: Newsletter & Map -->
+      <!-- Col 4: Specialismen -->
       <div class="footer-col extra-col">
-        <h3>Blijf op de hoogte</h3>
-        <p>Ontvang inspiratie voor uw volgende project.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Uw emailadres..." />
-          <button type="button" class="btn-send">→</button>
-        </form>
+        <h3>Specialisaties</h3>
+        <ul class="spec-list">
+          <li>Complete Badkamerrenovatie</li>
+          <li>Exclusief Tegelwerk</li>
+          <li>Zwembaden & Wellness</li>
+          <li>Technisch Installatiewerk</li>
+          <li>Maatwerk Interieur</li>
+        </ul>
         <div class="map-container">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2493.5350937550!2d3.5976523!3d51.4633857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c4ba984852066d%3A0xe744e4324f9f44ce!2sAmbachtsweg%204%2C%204387%20BN%20Vlissingen!5e0!3m2!1snl!2snl!4v1737666352000!5m2!1snl!2snl" 
@@ -226,38 +228,24 @@ const currentYear = new Date().getFullYear();
     list-style: none; /* Secondary reset */
   }
 
-  .newsletter-form {
-    display: flex;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
+  .spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem;
   }
 
-  .newsletter-form input {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 0.8rem 1rem;
-    color: white;
-    font-family: inherit;
-    color: white;
-    font-family: inherit;
-    width: 100%;
-    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-    outline: none;
+  .spec-list li {
+    color: #999;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.2rem;
   }
 
-  .btn-send {
-    background: var(--color-primary);
-    border: none;
-    color: white;
-    padding: 0 1.2rem;
-    cursor: pointer;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-size: 1.2rem;
-    transition: background 0.3s;
-  }
-  
-  .btn-send:hover {
-    background: #b00000;
+  .spec-list li::before {
+    content: '•';
+    color: var(--color-primary);
+    position: absolute;
+    left: 0;
   }
 
   .map-container {
@@ -404,12 +392,7 @@ const currentYear = new Date().getFullYear();
       margin-right: 0;
       list-style-type: none;
     }
-    .newsletter-form {
-      max-width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 0;
-    }
+
     .map-container {
       display: none; /* Hide map on mobile as requested */
     }
