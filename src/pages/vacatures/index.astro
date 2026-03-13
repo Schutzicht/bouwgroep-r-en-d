@@ -1,16 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const vacancies = [
-  {
-    title: "Ervaren Tegelzetter",
-    location: "Vlissingen e.o.",
-    type: "Fulltime",
-    href: "/vacatures/ervaren-tegelzetter",
-    tags: ["Vakmanschap", "Exclusief", "Per Direct"],
-    description: "Ben jij een meester in je vak? Werk mee aan de meest exclusieve sanitaire projecten van Zeeland."
-  }
-];
+const vacancies = [];
 
 const benefits = [
     { 
@@ -58,34 +49,41 @@ const benefits = [
                 <div class="bento-col main-col">
                     <h2 class="section-title">Openstaande Functies</h2>
                     <div class="vacancies-list">
-                        {vacancies.map(job => (
-                            <a href={job.href} class="vacancy-card glass-card">
-                                <div class="card-arrow">→</div>
-                                <div class="card-content">
-                                    <div class="card-header">
-                                        <h3>{job.title}</h3>
-                                        <div class="tags">
-                                            {job.tags.map(tag => <span class="tag">{tag}</span>)}
+                        {vacancies.length > 0 ? (
+                            vacancies.map(job => (
+                                <a href={job.href} class="vacancy-card glass-card">
+                                    <div class="card-arrow">→</div>
+                                    <div class="card-content">
+                                        <div class="card-header">
+                                            <h3>{job.title}</h3>
+                                            <div class="tags">
+                                                {job.tags.map(tag => <span class="tag">{tag}</span>)}
+                                            </div>
+                                        </div>
+                                        <p>{job.description}</p>
+                                        <div class="meta-row">
+                                            <span class="meta-item">
+                                                <span class="icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                </span> 
+                                                {job.location}
+                                            </span>
+                                            <span class="meta-item">
+                                                <span class="icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                                </span> 
+                                                {job.type}
+                                            </span>
                                         </div>
                                     </div>
-                                    <p>{job.description}</p>
-                                    <div class="meta-row">
-                                        <span class="meta-item">
-                                            <span class="icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                            </span> 
-                                            {job.location}
-                                        </span>
-                                        <span class="meta-item">
-                                            <span class="icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                            </span> 
-                                            {job.type}
-                                        </span>
-                                    </div>
-                                </div>
-                            </a>
-                        ))}
+                                </a>
+                            ))
+                        ) : (
+                            <div class="no-vacancies glass-card">
+                                <p>Momenteel hebben wij geen openstaande vacatures, maar we zijn altijd op zoek naar gepassioneerde vakmensen.</p>
+                                <p>Zie jij een match? Stuur ons dan een open sollicitatie!</p>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -335,6 +333,24 @@ const benefits = [
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+    }
+
+    .no-vacancies {
+        padding: 3rem;
+        text-align: center;
+        border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .no-vacancies p {
+        color: #888;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .no-vacancies p:last-child {
+        margin-bottom: 0;
+        color: var(--color-primary);
+        font-weight: 600;
     }
 
     .benefits-card h3, .open-app-card h3 {
