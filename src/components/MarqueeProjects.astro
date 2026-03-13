@@ -1,49 +1,31 @@
 ---
 const projects = [
   {
-    title: "Badkamer Renovatie",
+    title: "Luxe Badkamer Renovatie",
     location: "Vlissingen",
-    image: "/generated-projects-real/bathroom.jpg",
+    image: "/projects-real/badkamer-1.jpg",
     category: "Sanitair",
-    story: "In Vlissingen hebben we een verouderde badkamer volledig getransformeerd tot een moderne, luxueuze ruimte. De focus lag op het gebruik van hoogwaardige, natuurlijke materialen en een naadloze afwerking. Een vrijstaand bad en maatwerk meubilair maken het plaatje compleet.",
+    story: "Deze verouderde badkamer is compleet vernieuwd en getransformeerd tot een moderne, sfeervolle ruimte. Door gebruik te maken van hoogwaardige materialen, stijlvol tegelwerk en strak sanitair hebben we een oase van rust gecreëerd. Elke centimeter is optimaal benut voor een ruimtelijk effect.",
     review: "R&D Bouwgroep heeft prachtig werk geleverd. Het oog voor detail is ongekend en ze dachten constant met ons mee. Absolute topklasse!",
-    gallery: ["/generated-projects-real/bathroom.jpg", "/generated-projects-real/marble.jpg", "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/3.jpg"]
+    gallery: ["/projects-real/badkamer-1.jpg"]
   },
   {
-    title: "Nieuwbouw Wellness",
-    location: "Middelburg",
-    image: "/generated-projects-real/wellness.jpg",
-    category: "Wellness",
-    story: "Voor een prachtige nieuwbouwvilla in Middelburg mochten wij de complete inpandige wellnessruimte realiseren. Het project omvatte een op maat gemaakte sauna, stoomcabine en zwembad, volledig bekleed met exclusieve mozaïek tegels.",
-    review: "Onze droom is werkelijkheid geworden. We hebben nu onze eigen spa aan huis. De afwerking en technische realisatie zijn van het hoogste niveau.",
-    gallery: ["/generated-projects-real/wellness.jpg", "/generated-projects-real/pool.jpg", "/generated-projects-real/marble.jpg"]
-  },
-  {
-    title: "Marmeren Vloer",
-    location: "Goes",
-    image: "/generated-projects-real/marble.jpg",
-    category: "Tegelwerk",
-    story: "Het leggen van grootformaat marmeren tegels vraagt om exceptioneel vakmanschap. Voor deze opdrachtgever in Goes hebben we de gehele begane grond voorzien van een naadloos gelegde marmeren vloer die een chique en ruimtelijk gevoel geeft.",
-    review: "Werkelijk vakwerk. De vloer ligt er fenomenaal in, geen enkele naad is voelbaar. Het team werkte netjes en overlegde alles perfect.",
-    gallery: ["/generated-projects-real/marble.jpg", "/generated-projects-real/bathroom.jpg", "https://www.rd-bouwgroep.nl/wp-content/uploads/2024/06/badkamer.jpg"]
-  },
-  {
-    title: "Toilet Design",
+    title: "Exclusieve Badkamer met Inpandige Sauna",
     location: "Domburg",
-    image: "/generated-projects-real/toilet.jpg",
-    category: "Sanitair",
-    story: "Een gastentoilet is het visitekaartje van de woning. We ontwierpen en bouwden dit zwevende toilet met een minimalistisch design, subtiele LED-verlichting en betonstuc wanden voor een industriële, exclusieve look.",
-    review: "Zelfs het kleine toilet voelt nu als een design hotel. Super strak afgewerkt.",
-    gallery: ["/generated-projects-real/toilet.jpg", "/generated-projects-real/bathroom.jpg"]
+    image: "/projects-real/badkamer-sauna-1.jpg",
+    category: "Wellness",
+    story: "Een uniek project in Domburg waarbij een royale badkamer naadloos overvloeit in een luxe inpandige sauna. We hebben de ruimte voorzien van prachtig maatwerk houtveneer tegels, sfeervolle verlichting en een ruime inloopdouche. Het perfecte voorbeeld van wellness aan huis, afgewerkt tot in het kleinste detail.",
+    review: "Onze droom is werkelijkheid geworden. We hebben nu onze eigen spa aan huis. De afwerking en technische realisatie zijn van het hoogste niveau.",
+    gallery: ["/projects-real/badkamer-sauna-1.jpg", "/projects-real/badkamer-sauna-2.jpg", "/projects-real/badkamer-sauna-3.jpg", "/projects-real/badkamer-sauna-4.jpg", "/projects-real/badkamer-sauna-5.jpg"]
   },
   {
-    title: "Zwembad Aanleg",
-    location: "Zoutelande",
-    image: "/generated-projects-real/pool.jpg", 
-    category: "Zwembaden",
-    story: "Aanleg van een inpandig overloopzwembad inclusief klimaatbeheersing en wellness. Een uitdagend project dat we met veel passie van A tot Z hebben begeleid, waarbij we enkel met A-kwaliteit materialen werkten.",
-    review: "Een betrouwbare aannemer die gemaakte afspraken nakomt en meesterlijk tegelwerk oplevert.",
-    gallery: ["/generated-projects-real/pool.jpg", "/generated-projects-real/wellness.jpg"]
+    title: "Moderne Badkamer en Toilet",
+    location: "Goes",
+    image: "/projects-real/badkamer-wc-1.jpg",
+    category: "Sanitair",
+    story: "Zowel de hoofdbadkamer als het gastentoilet zijn in deze woning in Goes meegenomen en in dezelfde strakke stijl gerenoveerd. De combinatie van donkere accenten met warme beton-look en houtlook tegelsoorten zorgt voor een chique en toch stoere uitstraling. R&D Bouwgroep verzorgde het complete plaatje: van sloopwerk tot de vakkundige installatie van het nieuwe sanitair.",
+    review: "Werkelijk vakwerk. R&D nam alles uit handen en de ruimtes zijn exact geworden zoals we hadden gehoopt.",
+    gallery: ["/projects-real/badkamer-wc-1.jpg", "/projects-real/badkamer-wc-2.jpg", "/projects-real/badkamer-wc-3.jpg", "/projects-real/badkamer-wc-4.jpg", "/projects-real/badkamer-wc-5.jpg"]
   }
 ];
 ---
@@ -635,10 +617,11 @@ const projects = [
                    img.loading = 'lazy';
                    // Inline styles for fast rendering, or use classes
                    img.style.width = '100%';
-                   img.style.aspectRatio = '16/9';
-                   img.style.objectFit = 'cover';
+                   img.style.maxHeight = '70vh';
+                   img.style.objectFit = 'contain';
                    img.style.borderRadius = '12px';
-                   img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+                   img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                   img.style.backgroundColor = '#f4f4f4'; // gives some framing context if it doesn't fill width
                    mGallery.appendChild(img);
               });
             }
