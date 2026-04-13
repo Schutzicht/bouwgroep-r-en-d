@@ -30,7 +30,7 @@ const { title, description = "R&D Bouwgroep - Waar luxe en comfort samenkomen in
 		<StickyOffer />
 		<Footer />
 
-		<!-- Easter egg: Konami code (↑↑↓↓←→←→BA) reveals the ballerina team photo -->
+		<!-- Easter egg: type "ballerina" anywhere, or click the subtle 🩰 in the footer -->
 		<div id="ballerina-egg" aria-hidden="true">
 			<img src="/Teamfotos%20R%26D/Teamfoto%20grappig%20ai%20ballerina%20versie%20van%20normaal.jpeg" alt="" />
 			<span class="egg-caption">Je hebt het geheim van R&amp;D ontdekt 🩰</span>
@@ -38,23 +38,27 @@ const { title, description = "R&D Bouwgroep - Waar luxe en comfort samenkomen in
 
 		<script is:inline>
 			(() => {
-				const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-				let idx = 0;
 				const egg = document.getElementById('ballerina-egg');
 				if (!egg) return;
 				const trigger = () => {
 					egg.classList.add('is-active');
 					setTimeout(() => egg.classList.remove('is-active'), 5000);
 				};
+				const word = 'ballerina';
+				let buffer = '';
 				window.addEventListener('keydown', (e) => {
-					const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-					if (key === code[idx]) {
-						idx++;
-						if (idx === code.length) { trigger(); idx = 0; }
-					} else {
-						idx = key === code[0] ? 1 : 0;
+					if (e.key.length !== 1) return;
+					buffer = (buffer + e.key.toLowerCase()).slice(-word.length);
+					if (buffer === word) { trigger(); buffer = ''; }
+				});
+				document.addEventListener('click', (e) => {
+					const t = e.target;
+					if (t && t.closest && t.closest('[data-ballerina]')) {
+						e.preventDefault();
+						trigger();
 					}
 				});
+				egg.addEventListener('click', () => egg.classList.remove('is-active'));
 			})();
 		</script>
 

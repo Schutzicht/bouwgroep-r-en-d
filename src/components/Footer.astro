@@ -103,7 +103,7 @@ const currentYear = new Date().getFullYear();
         <a href="/disclaimer">Disclaimer</a>
       </div>
       <div class="footer-info">
-        <p>&copy; {currentYear} R&D Bouwgroep. Alle rechten voorbehouden.</p>
+        <p>&copy; {currentYear} R&D Bouwgroep. Alle rechten voorbehouden<button type="button" class="ballerina-hint" data-ballerina aria-label="Een klein geheim">.</button></p>
         <p class="credits">Website door <a href="https://zee-zicht.nl" target="_blank" class="text-primary" style="font-weight: bold;">zee-zicht.nl</a></p>
       </div>
     </div>
@@ -302,6 +302,28 @@ const currentYear = new Date().getFullYear();
 
   .credits a {
     color: var(--color-primary);
+  }
+
+  .ballerina-hint {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: default;
+    display: inline-block;
+    transition: transform 0.4s ease, color 0.4s ease;
+  }
+  .ballerina-hint:hover {
+    cursor: pointer;
+    color: var(--color-primary);
+    transform: translateY(-1px);
+  }
+  .ballerina-hint:hover::after {
+    content: ' 🩰';
+    font-size: 0.9em;
+    opacity: 0.7;
   }
 
   /* Back to Top */
